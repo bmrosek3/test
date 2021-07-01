@@ -12,22 +12,13 @@
 		arr.push(number);
 		Android.displayArray(arr.toString());
 	}
-	
-	function returnThing() {
-		var thing = Android.getArray();
-		var arr = thing.split(",");
+	function getArrayAverage() {
 		var total = 0;
 		for(var i in arr) {
-			var curr = parseFloat(arr[i]);
-    			total += curr;
+    			total += arr[i];
 		}
 		var avg = total / arr.length;
 		Android.displayNumber(avg.toString());
-		//Android.displayNumber(arr[0].toString());
-	}
-	function doSomething() {
-		var deez = Android.getNumber() + 10;
-		Android.displayNumber(deez.toString());
 	}
 </script>
 </body>
