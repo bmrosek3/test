@@ -20,6 +20,15 @@
 		var avg = total / arr.length;
 		Android.displayNumber(avg.toString());
 	}
+	function getArrayMaximum() {
+		var max = 0;
+		for (var i in arr) {
+			if(arr[i] > max) {
+				max = arr[i];
+			}
+		}
+		Android.displayNumber(max.toString());
+	}
 </script>
 </body>
 </html>
