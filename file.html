@@ -7,6 +7,15 @@
 <script type="text/javascript">
 	document.write("Webview Loaded");
 	var arr = [];
+	function callAll() {
+		var json = '{
+			"Max" : getArrayMaximum()
+			"Average" : getArrayAverage()
+			"Minimum" : getArrayMinimum()
+			"Length" : getArrayLength()
+			}'
+		Android.displayNumber(json.toString());
+	}
 	function addNumber() {
 		var number = Android.addNumber();
 		arr.push(number);
@@ -18,16 +27,28 @@
     			total += arr[i];
 		}
 		var avg = total / arr.length;
-		Android.displayNumber(avg.toString());
+		return (avg.toString());
 	}
 	function getArrayMaximum() {
-		var max = 0;
+		var max = arr[0];
 		for (var i in arr) {
 			if(arr[i] > max) {
 				max = arr[i];
 			}
 		}
-		Android.displayNumber(max.toString());
+		return (max.toString());
+	}
+	function getArrayMinimum() {
+		var min = arr[0];
+		for (var i in arr) {
+			if(arr[i] < min) {
+				min = arr[i];
+			}
+		}
+		return (min.toString());
+	}
+	function getArrayLength() {
+		return (arr.length.toString());
 	}
 </script>
 </body>
