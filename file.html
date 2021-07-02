@@ -8,7 +8,7 @@
 	document.write("Webview Loaded");
 	var arr = [];
 	function callAll() {
-		var json = JSON.stringify({Maximum: getArrayMaximum(), Average: getArrayAverage(), Minimum: getArrayMinimum(), Length: getArrayLength()});
+		var json = JSON.stringify({Maximum: getArrayMaximum(), Average: getArrayAverage()});
 		Android.displayNumber(json);
 	}
 	function addNumber() {
@@ -33,7 +33,7 @@
 		}
 		return (max.toString());
 	}
-	function getArrayMinimum() {
+	/*function getArrayMinimum() {
 		var min = arr[0];
 		for (var i in arr) {
 			if(arr[i] < min) {
@@ -44,7 +44,7 @@
 	}
 	function getArrayLength() {
 		return (arr.length.toString());
-	}
+	}*/
 </script>
 </body>
 </html>
