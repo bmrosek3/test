@@ -8,7 +8,7 @@
 	document.write("Webview Loaded");
 	var arr = [];
 	function callAll() {
-		var json = JSON.stringify({Maximum: getArrayMaximum(), Average: getArrayAverage(), Minimum: getArrayMinimum(), Length: getArrayLength()})
+		var json = JSON.stringify({Maximum: getArrayMaximum(), Average: getArrayAverage(), Minimum: getArrayMinimum(), Length: getArrayLength()});
 		Android.displayNumber(json.toString());
 	}
 	function addNumber() {
