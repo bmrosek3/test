@@ -9,7 +9,7 @@
 	var arr = [];
 	function callAll() {
 		var json = JSON.stringify({Maximum: getArrayMaximum(), Average: getArrayAverage(), Minimum: getArrayMinimum(), Length: getArrayLength()});
-		Android.displayNumber(json.toString());
+		Android.displayNumber(json);
 	}
 	function addNumber() {
 		var number = Android.addNumber();
