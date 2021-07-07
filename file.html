@@ -16,6 +16,7 @@
 		document.write(Android.getArray());
 		var arrString = Android.getArray().split(",");
 		for(var i in arrString) {
+			document.write(arrString[i]);
 			arr.push(parseFloat(arrString[i]));
 		}
 	}
