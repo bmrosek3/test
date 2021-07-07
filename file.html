@@ -14,7 +14,9 @@
 	}
 	function getArray() {
 		var arrString = Android.getArray();
-		arr = JSON.parse("[" + arrString + "]");
+		for(var i in arrString) {
+			arr.push(parseFloat(arr[i]));
+		}
 		document.write(arr);
 	}
 	/*function addNumber() {
