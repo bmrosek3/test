@@ -6,7 +6,7 @@
 
 <script type="text/javascript">
 	document.write("Webview Loaded");
-	document.write("poro");
+	document.write("pooro");
 	var arr = [];
 	getArray();
 	function callAll() {
@@ -18,10 +18,8 @@
 		temp.replace("[", "");
 		temp.replace("]", "");
 		var arrString = temp.split(","); 
+		document.write(arrString[0]);
 		for(var i in arrString) {
-			document.write(typeof(arrString[i]));
-			document.write(" ");
-			document.write(parseFloat(arrString[i]));
 			arr.push(parseFloat(arrString[i]));
 		}
 	}
