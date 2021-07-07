@@ -6,7 +6,7 @@
 
 <script type="text/javascript">
 	document.write("Webview Loaded");
-	document.write("boop");
+	document.write("booo");
 	var arr = [];
 	getArray();
 	function callAll() {
@@ -15,14 +15,13 @@
 	}
 	function getArray() {
 		var temp = Android.getArray();
-		document.write(temp);
 		temp.replace("[", "");
 		temp.replace("]", "");
 		var arrString = temp.split(","); 
-		document.write(arrString);
 		for(var i in arrString) {
 			arr.push(parseFloat(arrString[i]));
 		}
+		document.write(arr);
 	}
 	/*function addNumber() {
 		var number = Android.addNumber();
