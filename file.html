@@ -19,7 +19,7 @@
 		temp.replace("]", "");
 		var arrString = temp.split(","); 
 		for(var i in arrString) {
-			arr.push(parseFloat(arrString[i]));
+			arr = arr.concat(parseFloat(arrString[i]));
 		}
 		document.write(arr);
 	}
