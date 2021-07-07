@@ -13,12 +13,11 @@
 		Android.displayNumber(json);
 	}
 	function getArray() {
+		document.write(typeof(Android.getArray()));
 		var arrString = Android.getArray().split(",");
-		for(var i in arrString) {
+		/*for(var i in arrString) {
 			arr.push(parseFloat(arrString[i]));
-		}
-		document.write("hi");
-		document.write(arr);
+		}*/
 	}
 	/*function addNumber() {
 		var number = Android.addNumber();
