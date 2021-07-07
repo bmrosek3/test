@@ -14,7 +14,10 @@
 		Android.displayNumber(json);
 	}
 	function getArray() {
-		var arrString = Android.getArray().split(",");
+		var temp = Android.getArray();
+		temp.replace("[", "");
+		temp.replace("]", "");
+		var arrString = temp.split(","); 
 		for(var i in arrString) {
 			arr.push(parseFloat(arrString[i]));
 			document.write(arrString[i]);
