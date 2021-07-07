@@ -6,7 +6,6 @@
 
 <script type="text/javascript">
 	document.write("Webview Loaded");
-	document.write("poru");
 	var arr = [];
 	getArray();
 	function callAll() {
@@ -14,11 +13,7 @@
 		Android.displayNumber(json);
 	}
 	function getArray() {
-		var temp = Android.getArray();
-		temp.replace("[", "");
-		temp.replace("]", "");
-		var arrString = temp.split(","); 
-		document.write(arrString[3]);
+		var arrString = Android.getArray().split(", ");
 		for(var i in arrString) {
 			arr.push(parseFloat(arrString[i]));
 		}
