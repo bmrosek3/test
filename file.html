@@ -15,13 +15,13 @@
 	}
 	function getArray() {
 		var temp = Android.getArray();
+		document.write(temp);
 		temp.replace("[", "");
 		temp.replace("]", "");
 		var arrString = temp.split(","); 
+		document.write(arrString);
 		for(var i in arrString) {
 			arr.push(parseFloat(arrString[i]));
-			document.write(arrString[i]);
-			document.write(" ");
 		}
 	}
 	/*function addNumber() {
