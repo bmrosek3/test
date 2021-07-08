@@ -5,16 +5,21 @@
 </head>
 ​
 <script type="text/javascript">
-	document.write("Webview Loaded");
+	document.write("Webview Loadedd");
 	var arr = [];
+	getArray();
 	function callAll() {
 		var json = JSON.stringify({Maximum: getArrayMaximum(), Average: getArrayAverage(), Minimum: getArrayMinimum(), Length: getArrayLength(), StandardDeviation: getArrayStandardDeviation()});
 		Android.displayNumber(json);
 	}
-	function showPassedString(passedValue){
-		document.write(passedValue)
+	function getArray() {
+		var arrString = Android.getArray().split(", ");
+		for(var i in arrString) {
+			arr.push(parseFloat(arrString[i]));
+		}
+		document.write(arr);
 	}
-	function addNumber() {
+	/*function addNumber() {
 		var number = Android.addNumber();
 		arr.push(number);
 		Android.displayArray(arr.toString());
@@ -22,7 +27,7 @@
 	function clearArray() {
 		arr = []
 		Android.displayArray("");
-	}
+	}*/
 	function getArrayAverage() {
 		var total = 0;
 		for(var i in arr) {
