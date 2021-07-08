@@ -5,7 +5,7 @@
 </head>
 ​
 <script type="text/javascript">
-	document.write("Webview Has Loaded-4");
+	document.write("Webview Has Loaded");
 	var arr = [];
 	getAndroidArray();
 	function callAll() {
@@ -15,11 +15,9 @@
 	function getAndroidArray() {
 		var temp = Android.getArray()
 		var arrString = temp.split(",");
-		document.write(arrString);
 		for(var i in arrString) {
 			arr.push(parseFloat(arrString[i]));
 		}
-		document.write(arr);
 	}
 	function getArrayAverage() {
 		var total = 0;
