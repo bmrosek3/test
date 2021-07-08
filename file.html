@@ -7,12 +7,12 @@
 <script type="text/javascript">
 	document.write("Webview Has Loaded-3");
 	var arr = [];
-	getArray();
+	getAndroidArray();
 	function callAll() {
 		var json = JSON.stringify({Maximum: getArrayMaximum(), Average: getArrayAverage(), Minimum: getArrayMinimum(), Length: getArrayLength(), StandardDeviation: getArrayStandardDeviation()});
 		Android.displayNumber(json);
 	}
-	function getArray() {
+	function getAndroidArray() {
 		var temp = Android.getArray()
 		var arrString = temp.split(",");
 		document.write(arrString);
