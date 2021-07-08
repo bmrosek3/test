@@ -5,7 +5,7 @@
 </head>
 ​
 <script type="text/javascript">
-	document.write("Webview Has Loaded-1");
+	document.write("Webview Has Loaded-2");
 	var arr = [];
 	getArray();
 	function callAll() {
@@ -13,7 +13,7 @@
 		Android.displayNumber(json);
 	}
 	function getArray() {
-		var arrString = Android.getArray().split(", ");
+		var arrString = Android.getArray().split(",");
 		document.write(arrString);
 		for(var i in arrString) {
 			arr.push(parseFloat(arrString[i]));
