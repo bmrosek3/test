@@ -6,56 +6,8 @@
 ​
 <script type="text/javascript">
 	document.write("Webview Has Loaded");
-	var arr = [];
-	getAndroidArray();
-	function callAll() {
-		var json = JSON.stringify({Maximum: getArrayMaximum(), Average: getArrayAverage(), Minimum: getArrayMinimum(), Length: getArrayLength(), StandardDeviation: getArrayStandardDeviation()});
-		Android.displayNumber(json);
-	}
-	function getAndroidArray() {
-		var temp = Android.getArray()
-		var arrString = temp.split(",");
-		for(var i in arrString) {
-			arr.push(parseFloat(arrString[i]));
-		}
-	}
-	function getArrayAverage() {
-		var total = 0;
-		for(var i in arr) {
-    			total += arr[i];
-		}
-		var avg = total / arr.length;
-		return (avg.toString());
-	}
-	function getArrayMaximum() {
-		var max = arr[0];
-		for (var i in arr) {
-			if(arr[i] > max) {
-				max = arr[i];
-			}
-		}
-		return (max.toString());
-	}
-	function getArrayMinimum() {
-		var min = arr[0];
-		for (var i in arr) {
-			if(arr[i] < min) {
-				min = arr[i];
-			}
-		}
-		return (min.toString());
-	}
-	function getArrayLength() {
-		return (arr.length.toString());
-	}
-	function getArrayStandardDeviation() {
-		var avg = parseFloat(getArrayAverage());
-		var total = 0.0;
-		for(var i in arr) {
-			total += Math.abs(avg-arr[i]);
-		}
-		var stdDev = (total/arr.length);
-		return stdDev.toString();
+	function test(passed: String) {
+		document.write(passed);
 	}
 </script>
 </body>
