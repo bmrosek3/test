@@ -13,9 +13,9 @@
 		var date = JSON.parse(datePassed);
 		
 		if ((driver.name == "Sri" && driver.experience < 2 && date.day == "Sunday" && location.speed > 70) == true) {
-			Android.displayTF(true);
+			Android.displayTF(true.toString());
 		} else {
-			Android.displayTF(false);
+			Android.displayTF(false.toString());
 		}
 	}
 </script>
