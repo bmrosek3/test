@@ -5,11 +5,10 @@
 </head>
 ​
 <script type="text/javascript">
-	document.write("Test 69");
+	document.write("Test 420");
 	function test(driverPassed, customerPassed, locationPassed, datePassed) {
-		document.write(locationPassed);
-		var arr = [];
-		var start = 0;
+		var location = JSON.parse(locationPassed);
+		document.write(location.lon);
 		/*for (var i in passed) {
 			if (passed[i] == "{") {
 				start = i;
