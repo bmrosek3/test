@@ -5,14 +5,24 @@
 </head>
 ​
 <script type="text/javascript">
-	document.write("Test 2");
-	function test(driverPassed, customerPassed, locationPassed, datePassed) {
+	document.write("Webview Has Loaded");
+	function sundayAlerts(driverPassed, locationPassed, datePassed) {
 		var driver = JSON.parse(driverPassed);
-		var customer = JSON.parse(customerPassed);
 		var location = JSON.parse(locationPassed);
 		var date = JSON.parse(datePassed);
 		
 		if ((driver.name == "Sri" && driver.experience < 2 && date.day == "Sunday" && location.speed > 70) == true) {
+			Android.displayTF(true.toString());
+		} else {
+			Android.displayTF(false.toString());
+		}
+	}
+	function earlyMorningAlerts(driverPassed, locationPassed, datePassed) {
+		var driver = JSON.parse(driverPassed);
+		var location = JSON.parse(locationPassed);
+		var date = JSON.parse(datePassed);
+		
+		if ((driver.name == "Jim" && location.speed > 70 && date.time >= 3600 && date.time <= 25200) == true) {
 			Android.displayTF(true.toString());
 		} else {
 			Android.displayTF(false.toString());
