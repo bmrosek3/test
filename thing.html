@@ -5,22 +5,14 @@
 </head>
 ​
 <script type="text/javascript">
-	document.write("Test 420");
+	document.write("Test 0713");
 	function test(driverPassed, customerPassed, locationPassed, datePassed) {
+		var driver = JSON.parse(driverPassed);
+		var customer = JSON.parse(customerPassed);
 		var location = JSON.parse(locationPassed);
-		document.write(location.lon);
-		/*for (var i in passed) {
-			if (passed[i] == "{") {
-				start = i;
-			} else if (passed[i] == "}") {
-				document.write(i);
-				document.write(" ");
-				document.write(passed[i]);
-				document.write(" ");
-				arr.push(passed.substring(start, i + 1));
-			}
-		}*/
-		//document.write(arr[0]);
+		var date = JSON.parse(datePassed);
+		
+		Android.displayTF(driver.name == "Sri" && driver.experience < 2 && date.day == "Sunday" && location.speed > 70);
 	}
 </script>
 </body>
