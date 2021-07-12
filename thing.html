@@ -5,10 +5,18 @@
 </head>
 ​
 <script type="text/javascript">
-	document.write("Test 2");
+	document.write("Test 3");
 	function test(passed) {
-		var arr = passed.split("|");
-		document.write(arr[1]);
+		var arr = [];
+		var start = 0;
+		for (var i in passed) {
+			if (passed[i] == "{") {
+				start = i;
+			} else if (passed[i] == "}") {
+				arr.push(passed.substring(start, i + 1));
+			}
+		}
+		document.write(arr[0]);
 	}
 </script>
 </body>
