@@ -5,12 +5,13 @@
 </head>
 ​
 <script type="text/javascript">
-	document.write("Test 5");
+	document.write("Test 6");
 	function test(passed) {
-		document.write(passed);
+		var obj = JSON.parse(passed);
+		document.write(obj);
 		var arr = [];
 		var start = 0;
-		for (var i in passed) {
+		/*for (var i in passed) {
 			if (passed[i] == "{") {
 				start = i;
 			} else if (passed[i] == "}") {
@@ -20,7 +21,7 @@
 				document.write(" ");
 				arr.push(passed.substring(start, i + 1));
 			}
-		}
+		}*/
 		//document.write(arr[0]);
 	}
 </script>
