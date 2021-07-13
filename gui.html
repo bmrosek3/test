@@ -1,28 +1,27 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-	<title></title>
-</head>
-  	<button onclick="myFunction()">Click muah</button>
-	<div class="example-parent">
-	 <div class="example-origin">
-    	  <div
-    	  id="draggable-1"
-    	  class="example-draggable"
-    	  draggable="true"
-	 >
-	  draggable
-   	 </div>
-	</div>
-		
-	<div
-	    class="example-dropzone"
-	>
-  	  dropzone
-	</div>
-       </div>
-<script type="text/javascript">
-        var driver = {name: "Sri", experience: 10};
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
 </script>
+</head>
+<body>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69">
+
 </body>
 </html>
