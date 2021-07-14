@@ -21,15 +21,11 @@
 </div>
 <script type="text/javascript">
 	var buildCondition = "";
-	document.getElementById("addAnd").addEventListener("click", addToCondition("and"));
+	document.getElementById("addAnd").addEventListener("click", addToCondition());
 	}, false);
-	function addToCondition(condition) {
+	function addToCondition() {
 		if (buildCondition != "") {
-			if (condition == "and") {
-				buildCondition += " & ";
-			} else {
-				buildCondition += " | ";
-			}
+			buildCondition += " & ";
 		}
 		buildCondition += "condition";
 		document.getElementById('pText').innerHTML = buildCondition;
