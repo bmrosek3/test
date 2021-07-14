@@ -1,22 +1,18 @@
 <!DOCTYPE html>
+.center-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
 <html>
 <head>
-	<style>
-	.bottomleft {
-	  position: absolute;
-	  bottom: 0;
-          right: 0;
-	}
-	</style>
-	<title></title>
 </head>
-<div>
-	<button id="demo" onclick="myFunction()">Click me to change my text color.</button>
-	<div class="bottomright">Bottom Right</div>
+<body>
+<div class="center-screen">
+I'm in the center
 </div>
-<script type="text/javascript">
-	function myFunction() {
-		document.write("DEEP");
-	}
-</script>
+</body>
 </html>
