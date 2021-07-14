@@ -14,13 +14,20 @@
 </head>
 <body>
 <div>
-<button id="demo" onclick="myFunction()">Click Me.</button>
+<button id="demo" onclick="myFunction()">Add</button>
 <div class="center-screen">
 <p id="pText">Click on a Button</p>
 </div>
 <script type="text/javascript">
+	var buildCondition = "None"
 	function myFunction() {
-		  document.getElementById('pText').innerHTML = "You pressed the button";
+		if (buildCondition == "None") {
+			buildCondition = "";
+			buildCondition += "condition";
+		} else {
+			buildCondition += "+ condition";
+		}
+		document.getElementById('pText').innerHTML = buildCondition;
 	}
 </script>
 </body>
