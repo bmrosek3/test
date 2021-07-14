@@ -17,19 +17,23 @@
 <button id="addAnd">Add And</button>
 <button id="addOr">Add Or</button>
 <div class="center-screen">
-<p id="pText">lol</p>
+<p id="pText">None</p>
 </div>
 <script type="text/javascript">
 	var buildCondition = "";
 	document.getElementById("addAnd").addEventListener("click", function(){
 		addToCondition("and");
 	});
+	document.getElementById("addOr").addEventListener("click", function(){
+		addToCondition("or");
+	});
 	function addToCondition(condition) {
 		if (buildCondition != "") {
-			buildCondition += " & ";
-		}
-		if (condition = "and") {
-			buildCondition += "sus";
+			if (condition = "and") {
+				buildCondition += " & ";
+			} else {
+				buildCondition += " | ";
+			}
 		}
 		buildCondition += "condition";
 		document.getElementById('pText').innerHTML = buildCondition;
