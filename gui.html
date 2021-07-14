@@ -14,16 +14,20 @@
 </head>
 <body>
 <div>
-<button id="add" onclick="addToCondition()">Add</button>
-<button id="remove" onclick"removeFromCondition()">Remove</button>
+<button id="addAnd" onclick="addToCondition("and")">Add And</button>
+<button id="addOr" onclick"addToCondition("or")">Add Or</button>
 <div class="center-screen">
 <p id="pText">None</p>
 </div>
 <script type="text/javascript">
 	var buildCondition = "";
-	function addToCondition() {
+	function addToCondition(condition) {
 		if (buildCondition != "") {
-			buildCondition += " + ";
+			if (condition == "and") {
+				buildCondition += " & ";
+			} else {
+				buildCondition += " | ";
+			}
 		}
 		buildCondition += "condition";
 		document.getElementById('pText').innerHTML = buildCondition;
