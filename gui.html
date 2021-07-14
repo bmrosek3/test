@@ -3,15 +3,11 @@
 <head>
 	<title></title>
 </head>
+<p id="demo" onclick="myFunction()">Click me to change my text color.</p>
 <script type="text/javascript">
-  var button = document.createElement("button");
-  button.innerHTML = "Do Something";
-
-  var body = document.getElementsByTagName("body")[0];
-  body.appendChild(button);
-
-  button.addEventListener ("click", function() {
-    alert("did something");
-  });
+function myFunction() {
+  document.getElementById("demo").style.color = "red";
+}
+</script>
 </script>
 </html>
