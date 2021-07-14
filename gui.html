@@ -17,7 +17,7 @@
 <button id="addAnd">Add And</button>
 <button id="addOr">Add Or</button>
 <div class="center-screen">
-<p id="pText">None</p>
+<p id="pText">NA</p>
 </div>
 <script type="text/javascript">
 	var buildCondition = "";
@@ -29,7 +29,7 @@
 	});
 	function addToCondition(condition) {
 		if (buildCondition != "") {
-			if (condition = "and") {
+			if (condition == "and") {
 				buildCondition += " & ";
 			} else {
 				buildCondition += " | ";
