@@ -14,13 +14,13 @@
 </head>
 <body>
 <div>
-<button id="demo" onclick="myFunction()">Click me to change my text color.</button>
+<button id="demo" onclick="myFunction()">Click Me.</button>
 <div class="center-screen">
 <p id="pText">Click on a Button</p>
 </div>
 <script type="text/javascript">
 	function myFunction() {
-		document.write("DEEP");
+		  document.getElementById('pText').innerHTML = "You pressed the button";
 	}
 </script>
 </body>
