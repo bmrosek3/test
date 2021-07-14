@@ -14,19 +14,18 @@
 </head>
 <body>
 <div>
-<button id="demo" onclick="myFunction()">Add</button>
+<button id="add" onclick="addToCondition()">Add</button>
+<button id="remove" onclick"removeFromCondition()">Remove</button>
 <div class="center-screen">
-<p id="pText">Click on a Button</p>
+<p id="pText">None</p>
 </div>
 <script type="text/javascript">
-	var buildCondition = "None"
-	function myFunction() {
-		if (buildCondition == "None") {
-			buildCondition = "";
-			buildCondition += "condition";
-		} else {
-			buildCondition += "+ condition";
+	var buildCondition = "";
+	function addToCondition() {
+		if (buildCondition != "") {
+			buildCondition += " + ";
 		}
+		buildCondition += "condition";
 		document.getElementById('pText').innerHTML = buildCondition;
 	}
 </script>
