@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <style>
 	.center-screen {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		min-height: 100vh;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
 	}
 	.attributeBlock button {
 		display: block;
@@ -17,14 +16,14 @@
 </head>
 <body>
 <div>
+	<button id="addAnd" value="and" onclick="addToCondition(this)">Add And</button>
+	<button id="addOr" value="or" onclick="addToCondition(this)">Add Or</button>
 	<div class="attributeBlock">
 		<button id="name" value="string">Name</button>
 		<button id="experience" value="number">Experience</button>
 		<button id="day" value="string">Day</button>
 	<div class="center-screen">
-		<p id="equation">Nada</p>
-		<button id="addAnd" value="and" onclick="addToCondition(this)">Add And</button>
-		<button id="addOr" value="or" onclick="addToCondition(this)">Add Or</button>
+		<p id="equation">Nope</p>
 </div>
 <script type="text/javascript">
 	var obbyject = {name: "Sri", experience: 10, day: "Sunday"};
