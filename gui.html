@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <style>
-  .center-screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: 100vh;
-  }
+	.center-screen {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		min-height: 100vh;
+	}
+	.attributeBlock button {
+		display: block;
+	}
 </style>
 <html>
 <head>
 </head>
 <body>
 <div>
-<button id="addAnd">Add And</button>
-<button id="addOr">Add Or</button>
-<div class="btn-group">
-  <button>Apple</button>
-  <button>Samsung</button>
-  <button>Sony</button>
-<div class="center-screen">
-<p id="pText">NA</p>
+	<button id="addAnd">Add And</button>
+	<button id="addOr">Add Or</button>
+	<div class="attributeBlock">
+		<button>Apple</button>
+		<button>Samsung</button>
+		<button>Sony</button>
+	<div class="center-screen">
+		<p id="pText">NA</p>
 </div>
 <script type="text/javascript">
 	var buildCondition = "";
