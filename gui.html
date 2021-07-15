@@ -58,7 +58,6 @@
 		verifyEquation("equivalency");
 	}
 	function addSign(sign) {
-		document.getElementById("backspace").style.visibility = "hidden";
 		if (sign.id == "greaterThan") {
 			buildEquation.push(">");
 		} else if (sign.id == "lessThan") {
@@ -83,6 +82,7 @@
 		verifyEquation(condition.value);
 	}
 	function addAttribute(attribute) {
+		document.getElementById("backspace").style.visibility = "hidden";
 		if (attribute.id == "name") {
 			buildEquation.push(obbyject.name);
 			buildEquationTypes.push("attributeS");
