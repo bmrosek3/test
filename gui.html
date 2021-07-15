@@ -7,7 +7,7 @@
 		-webkit-transform: translate(-50%, -50%);
 		transform: translate(-50%, -50%);
 	}
-	.attributeBlock button {
+	.buttonBlock button {
 		display: block;
 	}
 </style>
@@ -18,12 +18,20 @@
 <div>
 	<button id="addAnd" value="andOr" onclick="addAndOr(this)">Add And</button>
 	<button id="addOr" value="andOr" onclick="addAndOr(this)">Add Or</button>
-	<button id"backspace" value="backspace" onclick="removeLast()"><-</button>
+	<button id"backspace" value="backspace" onclick="removeLast()"><<</button>
 	<input type="text" id="equivalencyValue" placeholder="Enter Equivalency">
 	<button id"addEquivalency" onclick="addEquivalency()">Enter</button>
 	</div>
 <div>
-	<div class="attributeBlock">
+	<div class="buttonBlock">
+		<button id="greaterThan" value="sign" onclick="addSign(this)">></button>
+		<button id="lessThan" value="sign" onclick="addSign(this)">=</button>
+		<button id="equal" value="sign" onclick="addSign(this)"><</button>
+		<button id="greaterThanEqual" value="sign" onclick="addSign(this)">>=</button>
+		<button id="lessthanEqual" value="sign" onclick="addSign(this)"><=</button>
+	</div>
+<div>
+	<div class="buttonBlock">
 		<button id="name" value="attribute" onclick="addAttribute(this)">Name</button>
 		<button id="experience" value="attribute" onclick="addAttribute(this)">Experience</button>
 		<button id="day" value="attribute" onclick="addAttribute(this)">Day</button>
@@ -37,10 +45,32 @@
 	var buildEquation = new Array();
 	var buildEquationTypes = new Array();
 	function addEquivalency() {
-		buildEquation.push(document.getElementById("equivalencyValue").value.toString());
-		buildEquationTypes.push("value");
+		var entered = document.getElementById("equivalencyValue").value.toString();
+		buildEquation.push(entered);
+		if (!/[^a-zA-Z]/.test(entered) == true) {
+			buildEquationTypes.push("valueS");
+		} else if (/^\d+$/.test(entered) = true) {
+			buildEquationTypes.push("valueN");
+		} else {
+			buildEquationTypes.push("valueI");
+		}
 		document.getElementById("equivalencyValue").value = "";
 		verifyEquation("equivalency");
+	}
+	function addSign(sign) {
+		if (sign.id == "greaterThan") {
+			buildEquation.push(">");
+		} else if (sign.id == "lessThan") {
+			buildEquation.push("<");
+		} else if (sign.id == "equal") {
+			buildEquation.push("==");
+		} else if (sign.id == "greaterThanEqual") {
+			buildEquation.push(">=");
+		} else {
+			buildEquation.push("<=");
+		}
+		buildEquationTypes.push("sign");
+		verifyEquation(sign.value);
 	}
 	function addAndOr(condition) {
 		if (condition.id == "addAnd") {
@@ -54,12 +84,14 @@
 	function addAttribute(attribute) {
 		if (attribute.id == "name") {
 			buildEquation.push(obbyject.name);
+			buildEquationTypes.push("attributeS");
 		} else if (attribute.id == "experience") {
 			buildEquation.push(obbyject.experience);
+			buildEquationTypes.push("attributeN");
 		} else {
 			buildEquation.push(obbyject.day);
+			buildEquationTypes.push("attributeS");
 		}
-		buildEquationTypes.push("attribute");
 		verifyEquation(attribute.value);
 	}
 	function removeLast() {
@@ -89,9 +121,15 @@
 				document.getElementById("equation").innerHTML = "if ()";
 				return;
 			}
+		}/* else if (last == "attribute") {
+			if (buildEquationTypes[buildEquationTypes.length - 2] == "attribute") {
+				buildEquation.pop();
+				buildEquationTypes.pop();
+				alert("Cannot use repeating attributes.");
+			}
 		}
 		
-		
+		*/
 		/*else if (last == "equivalency") {
 			if (conditionals.includes(buildEquation[buildEquation.length - 2]) == false) {
 				buildEquation.pop();
