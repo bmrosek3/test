@@ -38,7 +38,7 @@
 		} else {
 			buildCondition.push(" | ");
 		}
-		document.getElementById("equation").innerHTML = buildCondition.toString();
+		document.getElementById("equation").innerHTML = buildCondition.join("");
 	}
 	function addAttribute(attribute) {
 		if (attribute.value == "name") {
@@ -48,7 +48,7 @@
 		} else {
 			buildCondition.push(obbyject.day);
 		}
-		document.getElementById("equation").innerHTML = buildCondition.toString();
+		document.getElementById("equation").innerHTML = buildCondition.join("");
 	}
 	
 	
