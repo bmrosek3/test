@@ -28,7 +28,7 @@
 		<button id="lessThan" value="sign" style="visibility:hidden" onclick="addSign(this)"><</button>
 		<button id="equal" value="sign" style="visibility:hidden" onclick="addSign(this)">=</button>
 		<button id="greaterThanEqual" value="sign" style="visibility:hidden" onclick="addSign(this)">>=</button>
-		<button id="lessthanEqual" value="sign" style="visibility:hidden" onclick="addSign(this)"><=</button>
+		<button id="lessThanEqual" value="sign" style="visibility:hidden" onclick="addSign(this)"><=</button>
 	</div>
 <div>
 	<div class="buttonBlock">
@@ -125,7 +125,6 @@
 			document.getElementById("name").style.visibility = "visible";
 			document.getElementById("experience").style.visibility = "visible";
 			document.getElementById("day").style.visibility = "visible";
-			document.getElementById("backspace").style.visibility = "hidden";
 		} else if (last == "attribute") {
 			document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
 			document.getElementById("name").style.visibility = "hidden";
@@ -156,7 +155,6 @@
 	function reset() {
 		document.getElementById("addAnd").style.visibility = "hidden";
 		document.getElementById("addOr").style.visibility = "hidden";
-		document.getElementById("backspace").style.visibility = "hidden";
 		document.getElementById("equivalencyValue").style.visibility = "hidden";
 		document.getElementById("addEquivalency").style.visibility = "hidden";
 		document.getElementById("greaterThan").style.visibility = "hidden";
