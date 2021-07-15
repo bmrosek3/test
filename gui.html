@@ -38,14 +38,13 @@
 	function addEquivalency() {
 		buildEquation.push(document.getElementById("equivalencyValue").value.toString());
 		document.getElementById("equivalencyValue").value = "";
-		//document.getElementById("equivalencyValue").placeholder = "Enter Equivalency";
 		verifyEquation("equivalency");
 	}
 	function addAndOr(condition) {
 		if (condition.id == "addAnd") {
-			buildEquation.push(" & ");
+			buildEquation.push("&");
 		} else {
-			buildEquation.push(" | ");
+			buildEquation.push("|");
 		}
 		verifyEquation(condition.value);
 	}
@@ -66,7 +65,7 @@
 		verifyEquation("backspace");
 	}
 	function verifyEquation(last) {
-		var conditionals = [" & ", " | "]
+		var conditionals = ["&", "|"]
 		if (last == "andOr") {
 			if (buildEquation.length < 2) {
 				buildEquation.pop()
@@ -84,7 +83,15 @@
 				return;
 			}
 		}
-		document.getElementById("equation").innerHTML = "if (" + buildEquation.join("") + ")";
+		
+		
+		/*else if (last == "equivalency") {
+			if (conditionals.includes(buildEquation[buildEquation.length - 2]) == false) {
+				buildEquation.pop();
+				alert("Equivalencies must be proceeded with a conditional.");
+			} else if (
+		}*/
+		document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
 	}
 	
 	
