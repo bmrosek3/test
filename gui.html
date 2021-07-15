@@ -122,6 +122,7 @@
 				return;
 			}
 		} else if (last == "attribute") {
+			document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
 			document.getElementById("name").style.visibility = "hidden";
 			document.getElementById("experience").style.visibility = "hidden";
 			document.getElementById("day").style.visibility = "hidden";
@@ -131,7 +132,6 @@
 			document.getElementById("greaterThanEqual").style.visibility = "visible";
 			document.getElementById("lessThanEqual").style.visibility = "visible";
 		}
-		document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
 	}
 	
 	
