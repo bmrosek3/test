@@ -58,11 +58,13 @@
 		verifyEquation("backspace");
 	}
 	function verifyEquation(last) {
-		var conditionals = ["&", "|"]
+		var conditionals = [" & ", " | "]
 		if (last == "andOr") {
 			if (buildEquation.length < 2) {
 				buildEquation.pop()
 				alert("Cannot begin equation with conditionals.");
+				document.getElementById("equation").innerHTML = "Empty";
+				return;
 			}
 			else if (conditionals.includes(buildEquation[buildEquation.length - 2]) == true) {
 				buildEquation.pop();
