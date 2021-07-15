@@ -17,16 +17,17 @@
 </head>
 <body>
 <div>
-	<button id="addAnd">Add And</button>
-	<button id="addOr">Add Or</button>
+	<button id="addAnd" value="and">Add And</button>
+	<button id="addOr" value"or">Add Or</button>
 	<div class="attributeBlock">
-		<button>Apple</button>
-		<button>Samsung</button>
-		<button>Sony</button>
+		<button id="name" value="string">Name</button>
+		<button id="experience" value="number">Experience</button>
+		<button id="day" value="string">Day</button>
 	<div class="center-screen">
-		<p id="pText">NA</p>
+		<p id="pText">None</p>
 </div>
 <script type="text/javascript">
+	var obbyject = {name: "Sri", experience: 10, day: "Sunday"};
 	var buildCondition = "";
 	document.getElementById("addAnd").addEventListener("click", function(){
 		addToCondition("and");
