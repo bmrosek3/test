@@ -28,7 +28,7 @@
 	</div>
 <div>
 	<div class="equationCenter">
-		<p id="equation">Empty</p>
+		<p id="equation">if ()</p>
 	</div>
 <script type="text/javascript">
 	var obbyject = {name: "object.name", experience: "object.experience", day: "object.day"};
@@ -63,7 +63,7 @@
 			if (buildEquation.length < 2) {
 				buildEquation.pop()
 				alert("Cannot begin equation with conditionals.");
-				document.getElementById("equation").innerHTML = "Empty";
+				document.getElementById("equation").innerHTML = "if ()";
 				return;
 			}
 			else if (conditionals.includes(buildEquation[buildEquation.length - 2]) == true) {
@@ -72,11 +72,11 @@
 			}
 		} else if (last == "backspace") {
 			if (buildEquation.length == 0) {
-				document.getElementById("equation").innerHTML = "Empty";
+				document.getElementById("equation").innerHTML = "if ()";
 				return;
 			}
 		}
-		document.getElementById("equation").innerHTML = buildEquation.join("");
+		document.getElementById("equation").innerHTML = "if (" + buildEquation.join("") + ")";
 	}
 	
 	
