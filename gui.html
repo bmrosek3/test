@@ -131,6 +131,15 @@
 			document.getElementById("lessThan").style.visibility = "visible";
 			document.getElementById("greaterThanEqual").style.visibility = "visible";
 			document.getElementById("lessThanEqual").style.visibility = "visible";
+		} else if (last == "sign") {
+			document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
+			document.getElementById("equivalencyValue").style.visibility = "visible";
+			document.getElementById("addEquivalency").style.visibility = "visible";
+			document.getElementById("greaterThan").style.visibility = "hidden";
+			document.getElementById("equal").style.visibility = "hidden";
+			document.getElementById("lessThan").style.visibility = "hidden";
+			document.getElementById("greaterThanEqual").style.visibility = "hidden";
+			document.getElementById("lessThanEqual").style.visibility = "hidden";
 		}
 	}
 	
