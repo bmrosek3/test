@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <style>
-	.centerEquation {
+	.center-screen {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -10,13 +10,6 @@
 	}
 	.attributeBlock button {
 		display: block;
-	}
-	.orAndBlock button {
-		display: block;
-		position: fixed;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
 	}
 </style>
 <html>
@@ -30,12 +23,18 @@
 		<button id="name" value="string">Name</button>
 		<button id="experience" value="number">Experience</button>
 		<button id="day" value="string">Day</button>
-	<div class="centerEquation">
+	<div class="center-screen">
 		<p id="equation">Nothing</p>
 </div>
 <script type="text/javascript">
 	var obbyject = {name: "Sri", experience: 10, day: "Sunday"};
 	var buildCondition = "";
+	/*document.getElementById("addAnd").addEventListener("click", function(){
+		addToCondition(document.getElementById("addAnd").val());
+	});
+	document.getElementById("addOr").addEventListener("click", function(){
+		addToCondition(document.getElementById("addOr").val());
+	});*/
 	function addToCondition(condition) {
 		if (buildCondition != "") {
 			if (condition.value == "and") {
@@ -47,17 +46,6 @@
 		buildCondition += "condition";
 		document.getElementById("equation").innerHTML = buildCondition;
 	}
-	
-	
-	
-	
-	
-	/*document.getElementById("addAnd").addEventListener("click", function(){
-		addToCondition(document.getElementById("addAnd").val());
-	});
-	document.getElementById("addOr").addEventListener("click", function(){
-		addToCondition(document.getElementById("addOr").val());
-	});*/
 </script>
 </body>
 </html>
