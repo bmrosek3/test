@@ -18,12 +18,13 @@
 <div>
 	<button id="addAnd" value="and" onclick="addAndOr(this)">Add And</button>
 	<button id="addOr" value="or" onclick="addAndOr(this)">Add Or</button>
+	<button id"backspace" value="backspace" onclick="removeLast(this)"><-</button>
 	</div>
 <div>
 	<div class="attributeBlock">
 		<button id="name" value="name" onclick="addAttribute(this)">Name</button>
 		<button id="experience" value="experience" onclick="addAttribute(this)">Experience</button>
-		<button id="day" value="day" onclick="addAttribute(this)">Day</button>
+		<button id="day" value="day" onclick="addAttribute()">Day</button>
 	</div>
 <div>
 	<div class="equationCenter">
@@ -50,7 +51,12 @@
 		}
 		document.getElementById("equation").innerHTML = buildCondition.join("");
 	}
-	
+	function removeLast() {
+		if (buildCondition.length != 0) {
+			buildCondition.pop();
+		}
+		document.getElementById("equation").innerHTML = buildCondition.join("");
+	}
 	
 	
 	
