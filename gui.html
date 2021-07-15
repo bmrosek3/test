@@ -102,20 +102,19 @@
 		verifyEquation("backspace");
 	}
 	function verifyEquation(last) {
+		if (buildEquation.length > 0) {
+			document.getElementById("backspace").style.visibility = "visible";
+		} else {
+			document.getElementById("backspace").style.visibility = "hidden";
+		}
 		var conditionals = ["&", "|"]
 		if (last == "andOr") {
-			if (buildEquation.length < 2) {
-				buildEquation.pop();
-				buildEquationTypes.pop();
-				alert("Cannot begin equation with conditionals.");
-				document.getElementById("equation").innerHTML = "if ()";
-				return;
-			}
-			else if (buildEquationTypes[buildEquationTypes.length - 2] == "andOr") {
-				buildEquation.pop();
-				buildEquationTypes.pop();
-				alert("Cannot use repeating conditionals.");
-			}
+			document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
+			document.getElementById("addAnd").style.visibility = "hidden";
+			document.getElementById("addOr").style.visibility = "hidden";
+			document.getElementById("name").style.visibility = "visible";
+			document.getElementById("experience").style.visibility = "visible";
+			document.getElementById("day").style.visibility = "visible";
 		} else if (last == "backspace") {
 			if (buildEquation.length == 0) {
 				document.getElementById("equation").innerHTML = "if ()";
@@ -147,11 +146,6 @@
 			document.getElementById("addEquivalency").style.visibility = "hidden";
 			document.getElementById("addAnd").style.visibility = "visible";
 			document.getElementById("addOr").style.visibility = "visible";
-		}
-		if (buildEquation.length > 0) {
-			document.getElementById("backspace").style.visibility = "visible";
-		} else {
-			document.getElementById("backspace").style.visibility = "hidden";
 		}
 	}
 	
