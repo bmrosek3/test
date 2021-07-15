@@ -56,7 +56,7 @@
 		}*/
 		buildEquationTypes.push("equivalencyValue");
 		document.getElementById("equivalencyValue").value = "";
-		verifyEquation("equivalency");
+		verifyEquation("equivalencyValue");
 	}
 	function addSign(sign) {
 		if (sign.id == "greaterThan") {
@@ -95,11 +95,14 @@
 		verifyEquation(attribute.value);
 	}
 	function removeLast() {
-		if (buildEquation.length != 0) {
-			buildEquation.pop();
-			buildEquationTypes.pop();
+		buildEquation.pop();
+		buildEquationTypes.pop();
+		if (buildEquation.length > 0) {
+			var pastPass = buildEquationTypes[buildEquationTypes.length - 1];
+			verifyEquation(pastPass);
+		} else {
+			verifyEquation("empty");
 		}
-		verifyEquation("backspace");
 	}
 	function verifyEquation(last) {
 		if (buildEquation.length > 0) {
@@ -115,12 +118,12 @@
 			document.getElementById("name").style.visibility = "visible";
 			document.getElementById("experience").style.visibility = "visible";
 			document.getElementById("day").style.visibility = "visible";
-		} else if (last == "backspace") {
-			if (buildEquation.length == 0) {
-				document.getElementById("equation").innerHTML = "if ()";
-				document.getElementById("backspace").style.visibility = "hidden";
-				return;
-			}
+		} else if (last == "empty") {
+			document.getElementById("equation").innerHTML = "if ()";
+			document.getElementById("name").style.visibility = "visible";
+			document.getElementById("experience").style.visibility = "visible";
+			document.getElementById("day").style.visibility = "visible";
+			document.getElementById("backspace").style.visibility = "hidden";
 		} else if (last == "attribute") {
 			document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
 			document.getElementById("name").style.visibility = "hidden";
@@ -140,7 +143,7 @@
 			document.getElementById("lessThan").style.visibility = "hidden";
 			document.getElementById("greaterThanEqual").style.visibility = "hidden";
 			document.getElementById("lessThanEqual").style.visibility = "hidden";
-		} else if (last == "equivalency") {
+		} else if (last == "equivalencyValue") {
 			document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
 			document.getElementById("equivalencyValue").style.visibility = "hidden";
 			document.getElementById("addEquivalency").style.visibility = "hidden";
