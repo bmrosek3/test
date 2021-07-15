@@ -98,9 +98,12 @@
 		buildEquation.pop();
 		buildEquationTypes.pop();
 		if (buildEquation.length > 0) {
+			reset();
 			var pastPass = buildEquationTypes[buildEquationTypes.length - 1];
 			verifyEquation(pastPass);
 		} else {
+			document.getElementById("equation").innerHTML = "if ()";
+			reset();
 			verifyEquation("empty");
 		}
 	}
@@ -119,7 +122,6 @@
 			document.getElementById("experience").style.visibility = "visible";
 			document.getElementById("day").style.visibility = "visible";
 		} else if (last == "empty") {
-			document.getElementById("equation").innerHTML = "if ()";
 			document.getElementById("name").style.visibility = "visible";
 			document.getElementById("experience").style.visibility = "visible";
 			document.getElementById("day").style.visibility = "visible";
@@ -150,6 +152,21 @@
 			document.getElementById("addAnd").style.visibility = "visible";
 			document.getElementById("addOr").style.visibility = "visible";
 		}
+	}
+	function reset() {
+		document.getElementById("addAnd").style.visibility = "hidden";
+		document.getElementById("addOr").style.visibility = "hidden";
+		document.getElementById("backspace").style.visibility = "hidden";
+		document.getElementById("equivalencyValue").style.visibility = "hidden";
+		document.getElementById("addEquivalency").style.visibility = "hidden";
+		document.getElementById("greaterThan").style.visibility = "hidden";
+		document.getElementById("equal").style.visibility = "hidden";
+		document.getElementById("lessThan").style.visibility = "hidden";
+		document.getElementById("greaterThanEqual").style.visibility = "hidden";
+		document.getElementById("lessThanEqual").style.visibility = "hidden";
+		document.getElementById("name").style.visibility = "hidden";
+		document.getElementById("experience").style.visibility = "hidden";
+		document.getElementById("day").style.visibility = "hidden";
 	}
 	
 	
