@@ -30,10 +30,10 @@
 	var obbyject = {name: "Sri", experience: 10, day: "Sunday"};
 	var buildCondition = "";
 	document.getElementById("addAnd").addEventListener("click", function(){
-		addToCondition(document.getElementById.val());
+		addToCondition(document.getElementById("addAnd").val());
 	});
 	document.getElementById("addOr").addEventListener("click", function(){
-		addToCondition(document.getElementById.val());
+		addToCondition(document.getElementById("addOr").val());
 	});
 	function addToCondition(condition) {
 		if (buildCondition != "") {
