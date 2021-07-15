@@ -35,8 +35,10 @@
 <script type="text/javascript">
 	var obbyject = {name: "object.name", experience: "object.experience", day: "object.day"};
 	var buildEquation = new Array();
+	var buildEquationTypes = new Array();
 	function addEquivalency() {
 		buildEquation.push(document.getElementById("equivalencyValue").value.toString());
+		buildEquationTypes.push("value");
 		document.getElementById("equivalencyValue").value = "";
 		verifyEquation("equivalency");
 	}
@@ -46,6 +48,7 @@
 		} else {
 			buildEquation.push("|");
 		}
+		buildEquationTypes.push("andOr");
 		verifyEquation(condition.value);
 	}
 	function addAttribute(attribute) {
@@ -56,11 +59,13 @@
 		} else {
 			buildEquation.push(obbyject.day);
 		}
+		buildEquationTypes.push("attribute");
 		verifyEquation(attribute.value);
 	}
 	function removeLast() {
 		if (buildEquation.length != 0) {
 			buildEquation.pop();
+			buildEquationTypes.pop();
 		}
 		verifyEquation("backspace");
 	}
@@ -68,13 +73,15 @@
 		var conditionals = ["&", "|"]
 		if (last == "andOr") {
 			if (buildEquation.length < 2) {
-				buildEquation.pop()
+				buildEquation.pop();
+				buildEquationTypes.pop();
 				alert("Cannot begin equation with conditionals.");
 				document.getElementById("equation").innerHTML = "if ()";
 				return;
 			}
-			else if (conditionals.includes(buildEquation[buildEquation.length - 2]) == true) {
+			else if (buildEquationTypes[buildEquationTypes.length - 2] == "andOr") {
 				buildEquation.pop();
+				buildEquationTypes.pop();
 				alert("Cannot use repeating conditionals.");
 			}
 		} else if (last == "backspace") {
