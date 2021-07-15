@@ -25,8 +25,8 @@
 <div>
 	<div class="buttonBlock">
 		<button id="greaterThan" value="sign" onclick="addSign(this)">></button>
-		<button id="lessThan" value="sign" onclick="addSign(this)">=</button>
-		<button id="equal" value="sign" onclick="addSign(this)"><</button>
+		<button id="lessThan" value="sign" onclick="addSign(this)"><</button>
+		<button id="equal" value="sign" onclick="addSign(this)">=</button>
 		<button id="greaterThanEqual" value="sign" onclick="addSign(this)">>=</button>
 		<button id="lessthanEqual" value="sign" onclick="addSign(this)"><=</button>
 	</div>
@@ -58,6 +58,7 @@
 		verifyEquation("equivalency");
 	}
 	function addSign(sign) {
+		document.getElementById("backspace").style.visibility = "hidden";
 		if (sign.id == "greaterThan") {
 			buildEquation.push(">");
 		} else if (sign.id == "lessThan") {
