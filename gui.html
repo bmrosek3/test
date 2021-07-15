@@ -16,15 +16,15 @@
 </head>
 <body>
 <div>
-	<button id="addAnd" value="and" onclick="addAndOr(this)">Add And</button>
-	<button id="addOr" value="or" onclick="addAndOr(this)">Add Or</button>
-	<button id"backspace" value="backspace" onclick="removeLast(this)"><-</button>
+	<button id="addAnd" value="andOr" onclick="addAndOr(this)">Add And</button>
+	<button id="addOr" value="andOr" onclick="addAndOr(this)">Add Or</button>
+	<button id"backspace" value="backspace" onclick="removeLast()"><-</button>
 	</div>
 <div>
 	<div class="attributeBlock">
-		<button id="name" value="name" onclick="addAttribute(this)">Name</button>
-		<button id="experience" value="experience" onclick="addAttribute(this)">Experience</button>
-		<button id="day" value="day" onclick="addAttribute()">Day</button>
+		<button id="name" value="attribute" onclick="addAttribute(this)">Name</button>
+		<button id="experience" value="attribute" onclick="addAttribute(this)">Experience</button>
+		<button id="day" value="attribute" onclick="addAttribute(this)">Day</button>
 	</div>
 <div>
 	<div class="equationCenter">
@@ -34,7 +34,7 @@
 	var obbyject = {name: "Sri", experience: 10, day: "Sunday"};
 	var buildCondition = new Array();
 	function addAndOr(condition) {
-		if (condition.value == "and") {
+		if (condition.id == "addAnd") {
 			buildCondition.push(" & ");
 		} else {
 			buildCondition.push(" | ");
@@ -42,9 +42,9 @@
 		document.getElementById("equation").innerHTML = buildCondition.join("");
 	}
 	function addAttribute(attribute) {
-		if (attribute.value == "name") {
+		if (attribute.id == "name") {
 			buildCondition.push(obbyject.name);
-		} else if (attribute.value == "experience") {
+		} else if (attribute.id == "experience") {
 			buildCondition.push(obbyject.experience.toString());
 		} else {
 			buildCondition.push(obbyject.day);
