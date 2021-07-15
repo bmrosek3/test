@@ -10,20 +10,27 @@
 	.attributeBlock button {
 		display: block;
 	}
+	.andOrBlock button {
+		position: fixed;
+		left: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+	}
 </style>
 <html>
 <head>
 </head>
 <body>
 <div>
-	<button id="addAnd" value="and" onclick="addToCondition(this)">Add And</button>
-	<button id="addOr" value="or" onclick="addToCondition(this)">Add Or</button>
+	<div class="andOrBlock">
+		<button id="addAnd" value="and" onclick="addToCondition(this)">Add And</button>
+		<button id="addOr" value="or" onclick="addToCondition(this)">Add Or</button>
 	<div class="attributeBlock">
 		<button id="name" value="string">Name</button>
 		<button id="experience" value="number">Experience</button>
 		<button id="day" value="string">Day</button>
 	<div class="equationCenter">
-		<p id="equation">Nll</p>
+		<p id="equation">u</p>
 </div>
 <script type="text/javascript">
 	var obbyject = {name: "Sri", experience: 10, day: "Sunday"};
