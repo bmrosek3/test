@@ -10,32 +10,24 @@
 	.attributeBlock button {
 		display: block;
 	}
-	.andOrBlock button {
-		display: block;
-		position: fixed;
-		left: 50%;
-		-webkit-transform: translate(-50%);
-		transform: translate(-50%);
-	}
 </style>
 <html>
 <head>
 </head>
 <body>
 <div>
-	<div class="andOrBlock">
-		<button id="addAnd" value="and" onclick="addToCondition(this)">Add And</button>
-		<button id="addOr" value="or" onclick="addToCondition(this)">Add Or</button>
+	<button id="addAnd" value="and" onclick="addAndOr(this)">Add And</button>
+	<button id="addOr" value="or" onclick="addAndOr(this)">Add Or</button>
 	</div>
 <div>
 	<div class="attributeBlock">
-		<button id="name" value="string">Name</button>
-		<button id="experience" value="number">Experience</button>
-		<button id="day" value="string">Day</button>
+		<button id="name" value="name" onclick="addAttribute(this)">Name</button>
+		<button id="experience" value="experience" onclick="addAttribute(this)">Experience</button>
+		<button id="day" value="day" onclick="addAttribute(this)">Day</button>
 	</div>
 <div>
 	<div class="equationCenter">
-		<p id="equation">l</p>
+		<p id="equation">Nothing</p>
 	</div>
 <script type="text/javascript">
 	var obbyject = {name: "Sri", experience: 10, day: "Sunday"};
@@ -46,15 +38,22 @@
 	document.getElementById("addOr").addEventListener("click", function(){
 		addToCondition(document.getElementById("addOr").val());
 	});*/
-	function addToCondition(condition) {
-		if (buildCondition != "") {
-			if (condition.value == "and") {
-				buildCondition += " & ";
-			} else {
-				buildCondition += " | ";
-			}
+	function addAndOr(condition) {
+		if (condition.value == "and") {
+			buildCondition += " & ";
+		} else {
+			buildCondition += " | ";
 		}
-		buildCondition += "condition";
+		document.getElementById("equation").innerHTML = buildCondition;
+	}
+	function addAttribute(attribute) {
+		if (attribute.value == "name") {
+			buildCondition += obbyject.name;
+		} else if (attribute.value == "experience") {
+			buildCondition += obbyject.experience.toString();
+		} else {
+			buildCondition += obbyject.day;
+		}
 		document.getElementById("equation").innerHTML = buildCondition;
 	}
 </script>
