@@ -19,7 +19,8 @@
 	<button id="addAnd" value="andOr" onclick="addAndOr(this)">Add And</button>
 	<button id="addOr" value="andOr" onclick="addAndOr(this)">Add Or</button>
 	<button id"backspace" value="backspace" onclick="removeLast()"><-</button>
-	<input type="text" id="equivalencyValue" value="value">
+	<input type="text" id="equivalencyValue" placeholder="Enter Equivalency: ">
+	<button id"addEquivalency" onclick="addEquivalency()">Enter</button>
 	</div>
 <div>
 	<div class="attributeBlock">
@@ -34,6 +35,10 @@
 <script type="text/javascript">
 	var obbyject = {name: "object.name", experience: "object.experience", day: "object.day"};
 	var buildEquation = new Array();
+	function addEquivalency() {
+		buildEquation.push(document.getElementById("equivalencyValue").value.toString());
+		verifyEquation("equivalency");
+	}
 	function addAndOr(condition) {
 		if (condition.id == "addAnd") {
 			buildEquation.push(" & ");
