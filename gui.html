@@ -16,19 +16,19 @@
 </head>
 <body>
 <div>
-	<button id="addAnd" value="andOr" onclick="addAndOr(this)">Add And</button>
-	<button id="addOr" value="andOr" onclick="addAndOr(this)">Add Or</button>
-	<button id="backspace" value="backspace" onclick="removeLast()"><<</button>
-	<input type="text" id="equivalencyValue" placeholder="Enter Equivalency">
-	<button id="addEquivalency" onclick="addEquivalency()">Enter</button>
+	<button id="addAnd" value="andOr" style="visibility:hidden" onclick="addAndOr(this)">Add And</button>
+	<button id="addOr" value="andOr" style="visibility:hidden" onclick="addAndOr(this)">Add Or</button>
+	<button id="backspace" value="backspace" style="visibility:hidden" onclick="removeLast()"><<</button>
+	<input type="text" id="equivalencyValue" style="visibility:hidden" placeholder="Enter Equivalency">
+	<button id="addEquivalency" style="visibility:hidden" onclick="addEquivalency()">Enter</button>
 	</div>
 <div>
 	<div class="buttonBlock">
-		<button id="greaterThan" value="sign" onclick="addSign(this)">></button>
-		<button id="lessThan" value="sign" onclick="addSign(this)"><</button>
+		<button id="greaterThan" value="sign" style="visibility:hidden" onclick="addSign(this)">></button>
+		<button id="lessThan" value="sign" style="visibility:hidden" onclick="addSign(this)"><</button>
 		<button id="equal" value="sign" style="visibility:hidden" onclick="addSign(this)">=</button>
-		<button id="greaterThanEqual" value="sign" onclick="addSign(this)">>=</button>
-		<button id="lessthanEqual" value="sign" onclick="addSign(this)"><=</button>
+		<button id="greaterThanEqual" value="sign" style="visibility:hidden" onclick="addSign(this)">>=</button>
+		<button id="lessthanEqual" value="sign" style="visibility:hidden" onclick="addSign(this)"><=</button>
 	</div>
 <div>
 	<div class="buttonBlock">
@@ -43,6 +43,7 @@
 <script type="text/javascript">
 	var obbyject = {name: "object.name", experience: "object.experience", day: "object.day"};
 	var buildEquation = new Array();
+	var buildEquationTypes = new Array();
 	function addEquivalency() {
 		var entered = document.getElementById("equivalencyValue").value.toString();
 		buildEquation.push(entered);
@@ -84,14 +85,12 @@
 		document.getElementById("backspace").style.visibility = "hidden";
 		if (attribute.id == "name") {
 			buildEquation.push(obbyject.name);
-			buildEquationTypes.push("attributeS");
 		} else if (attribute.id == "experience") {
 			buildEquation.push(obbyject.experience);
-			buildEquationTypes.push("attributeN");
 		} else {
 			buildEquation.push(obbyject.day);
-			buildEquationTypes.push("attributeS");
 		}
+		buildEquationTypes.push(attribute.value);
 		verifyEquation(attribute.value);
 	}
 	function removeLast() {
@@ -119,23 +118,19 @@
 		} else if (last == "backspace") {
 			if (buildEquation.length == 0) {
 				document.getElementById("equation").innerHTML = "if ()";
+				document.getElementById("backspace").style.visibility = "hidden";
 				return;
 			}
-		}/* else if (last == "attribute") {
-			if (buildEquationTypes[buildEquationTypes.length - 2] == "attribute") {
-				buildEquation.pop();
-				buildEquationTypes.pop();
-				alert("Cannot use repeating attributes.");
-			}
+		} else if (last == "attribute") {
+			document.getElementById("name").style.visibility = "hidden";
+			document.getElementById("experience").style.visibility = "hidden";
+			document.getElementById("day").style.visibility = "hidden";
+			document.getElementById("greaterThan").style.visibility = "visible";
+			document.getElementById("equal").style.visibility = "visible";
+			document.getElementById("lessThan").style.visibility = "visible";
+			document.getElementById("greaterThanEqual").style.visibility = "visible";
+			document.getElementById("lessThanEqual").style.visibility = "visible";
 		}
-		
-		*/
-		/*else if (last == "equivalency") {
-			if (conditionals.includes(buildEquation[buildEquation.length - 2]) == false) {
-				buildEquation.pop();
-				alert("Equivalencies must be proceeded with a conditional.");
-			} else if (
-		}*/
 		document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
 	}
 	
