@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <style>
-	.center-screen {
+	.centerEquation {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -11,7 +11,7 @@
 	.attributeBlock {
 		display: block;
 	}
-	.orAndBlock button {
+	.orAndBlock {
 		display: block;
 		position: fixed;
 		top: 50%;
@@ -27,12 +27,15 @@
 	<div class="orAndBlock">
 		<button id="addAnd" value="and" onclick="addToCondition(this)">Add And</button>
 		<button id="addOr" value="or" onclick="addToCondition(this)">Add Or</button>
+	</div>
 	<div class="attributeBlock">
 		<button id="name" value="string">Name</button>
 		<button id="experience" value="number">Experience</button>
 		<button id="day" value="string">Day</button>
-	<div class="center-screen">
-		<p id="equation">No</p>
+	</div>
+	<div class="centerEquation">
+		<p id="equation">Nono</p>
+	</div>
 </div>
 <script type="text/javascript">
 	var obbyject = {name: "Sri", experience: 10, day: "Sunday"};
