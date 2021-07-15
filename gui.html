@@ -27,35 +27,40 @@
 	</div>
 <div>
 	<div class="equationCenter">
-		<p id="equation">Nothing</p>
+		<p id="equation">NA</p>
 	</div>
 <script type="text/javascript">
 	var obbyject = {name: "Sri", experience: 10, day: "Sunday"};
-	var buildCondition = "";
+	var buildCondition = new Array();
+	function addAndOr(condition) {
+		if (condition.value == "and") {
+			buildCondition.push(" & ");
+		} else {
+			buildCondition.push(" | ");
+		}
+		document.getElementById("equation").innerHTML = buildCondition.toString();
+	}
+	function addAttribute(attribute) {
+		if (attribute.value == "name") {
+			buildCondition.push(obbyject.name);
+		} else if (attribute.value == "experience") {
+			buildCondition.push(obbyject.experience.toString());
+		} else {
+			buildCondition.push(obbyject.day);
+		}
+		document.getElementById("equation").innerHTML = buildCondition.toString();
+	}
+	
+	
+	
+	
+	
 	/*document.getElementById("addAnd").addEventListener("click", function(){
 		addToCondition(document.getElementById("addAnd").val());
 	});
 	document.getElementById("addOr").addEventListener("click", function(){
 		addToCondition(document.getElementById("addOr").val());
 	});*/
-	function addAndOr(condition) {
-		if (condition.value == "and") {
-			buildCondition += " & ";
-		} else {
-			buildCondition += " | ";
-		}
-		document.getElementById("equation").innerHTML = buildCondition;
-	}
-	function addAttribute(attribute) {
-		if (attribute.value == "name") {
-			buildCondition += obbyject.name;
-		} else if (attribute.value == "experience") {
-			buildCondition += obbyject.experience.toString();
-		} else {
-			buildCondition += obbyject.day;
-		}
-		document.getElementById("equation").innerHTML = buildCondition;
-	}
 </script>
 </body>
 </html>
