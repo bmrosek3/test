@@ -17,27 +17,27 @@
 </head>
 <body>
 <div>
-	<button id="addAnd" value="and">Add And</button>
-	<button id="addOr" value="or">Add Or</button>
+	<button id="addAnd" value="and" onclick="addToCondition(this)">Add And</button>
+	<button id="addOr" value="or" onclick="addToCondition(this)">Add Or</button>
 	<div class="attributeBlock">
 		<button id="name" value="string">Name</button>
 		<button id="experience" value="number">Experience</button>
 		<button id="day" value="string">Day</button>
 	<div class="center-screen">
-		<p id="equation">None</p>
+		<p id="equation">Nothing</p>
 </div>
 <script type="text/javascript">
 	var obbyject = {name: "Sri", experience: 10, day: "Sunday"};
 	var buildCondition = "";
-	document.getElementById("addAnd").addEventListener("click", function(){
+	/*document.getElementById("addAnd").addEventListener("click", function(){
 		addToCondition(document.getElementById("addAnd").val());
 	});
 	document.getElementById("addOr").addEventListener("click", function(){
 		addToCondition(document.getElementById("addOr").val());
-	});
+	});*/
 	function addToCondition(condition) {
 		if (buildCondition != "") {
-			if (condition == "and") {
+			if (condition.value == "and") {
 				buildCondition += " & ";
 			} else {
 				buildCondition += " | ";
