@@ -16,8 +16,8 @@
 </head>
 <body>
 <div>
-	<button id="and" value="andOr" style="visibility:hidden" onclick="ocAndOr(this)">And</button>
-	<button id="or" value="andOr" style="visibility:hidden" onclick="ocAndOr(this)">Or</button>
+	<button id="addAnd" value="andOr" style="visibility:hidden" onclick="addAndOr(this)">And</button>
+	<button id="addOr" value="andOr" style="visibility:hidden" onclick="addAndOr(this)">Or</button>
 	<button id="backspace" value="backspace" style="visibility:hidden" onclick="removeLast()"><<</button>
 	<input type="text" id="equivalencyValue" style="visibility:hidden" placeholder="Enter Equivalency">
 	<button id="addEquivalency" style="visibility:hidden" onclick="addEquivalency()">Enter</button>
@@ -76,8 +76,8 @@
 		buildEquationTypes.push("sign");
 		verifyEquation(sign.value);
 	}
-	function ocAndOr(pressed) {
-		if (condition.id == "and") {
+	function addAndOr(condition) {
+		if (condition.id == "addAnd") {
 			buildEquation.push("and");
 			buildEquation.push("&&");
 		} else {
@@ -85,7 +85,7 @@
 			buildEquationLiteral.push("||");
 		}
 		buildEquationTypes.push("andOr");
-		verifyEquation(pressed.value);
+		verifyEquation(condition.value);
 	}
 	function addAttribute(attribute) {
 		if (attribute.id == "name") {
@@ -104,7 +104,6 @@
 	function removeLast() {
 		buildEquation.pop();
 		buildEquationTypes.pop();
-		buildEquationLiteal.pop();
 		if (buildEquation.length > 0) {
 			reset();
 			var pastPass = buildEquationTypes[buildEquationTypes.length - 1];
@@ -124,8 +123,8 @@
 		var conditionals = ["&", "|"]
 		if (last == "andOr") {
 			document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
-			document.getElementById("and").style.visibility = "hidden";
-			document.getElementById("or").style.visibility = "hidden";
+			document.getElementById("addAnd").style.visibility = "hidden";
+			document.getElementById("addOr").style.visibility = "hidden";
 			document.getElementById("name").style.visibility = "visible";
 			document.getElementById("experience").style.visibility = "visible";
 			document.getElementById("day").style.visibility = "visible";
@@ -158,13 +157,13 @@
 			document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
 			document.getElementById("equivalencyValue").style.visibility = "hidden";
 			document.getElementById("addEquivalency").style.visibility = "hidden";
-			document.getElementById("and").style.visibility = "visible";
-			document.getElementById("or").style.visibility = "visible";
+			document.getElementById("addAnd").style.visibility = "visible";
+			document.getElementById("addOr").style.visibility = "visible";
 		}
 	}
 	function reset() {
-		document.getElementById("and").style.visibility = "hidden";
-		document.getElementById("or").style.visibility = "hidden";
+		document.getElementById("addAnd").style.visibility = "hidden";
+		document.getElementById("addOr").style.visibility = "hidden";
 		document.getElementById("equivalencyValue").style.visibility = "hidden";
 		document.getElementById("addEquivalency").style.visibility = "hidden";
 		document.getElementById("greaterThan").style.visibility = "hidden";
