@@ -43,9 +43,7 @@
 		<p id="equation">if ()</p>
 	</div>
 <script type="text/javascript">
-	val = 
 	var buildEquation = new Array();
-	var buildEquationTypes = new Array();
 	var buildEquationLiteral = new Array();
 	var tracker = -1;
 	function onClickValue() {
@@ -106,7 +104,11 @@
 		setScreen();
 	}
 	function onClickFinalize() {
-		document.getElementById("equation").innerHTML = "if (" + buildEquationLiteral.join(" ") + ")";
+		var temp = `AAAA
+		AAAAA
+		AAAA`
+		document.getElementById("equation").innerHTML = temp;
+		//document.getElementById("equation").innerHTML = "if (" + buildEquationLiteral.join(" ") + ")";
 		reset();
 	}
 	function setScreen() {
