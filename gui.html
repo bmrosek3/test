@@ -18,7 +18,7 @@
 <div>
 	<button id="addAnd" value="andOr" style="visibility:hidden" onclick="onClickAndOr(this)">And</button>
 	<button id="addOr" value="andOr" style="visibility:hidden" onclick="onClickAndOr(this)">Or</button>
-	<button id="backspace" value="backspace" style="visibility:hidden" onclick="onClickBackspace()"><<</button>
+	<button id="backspace" value="backspace" style="visibility:hidden" onclick="onClickBackspace(this)"><<</button>
 	<input type="text" id="equivalencyValue" style="visibility:hidden" placeholder="Enter Equivalency">
 	<button id="addEquivalency" style="visibility:hidden" onclick="onClickValue()">Enter</button>
 	</div>
@@ -101,7 +101,7 @@
 		buildEquationTypes.push(pressed.value);
 		verifyEquation(pressed.value);
 	}
-	function onClickBackspace() {
+	function onClickBackspace(pressed) {
 		buildEquation.pop();
 		buildEquationTypes.pop();
 		buildEquationLiteral.pop();
@@ -112,7 +112,7 @@
 		} else {
 			document.getElementById("equation").innerHTML = "if ()";
 			reset();
-			verifyEquation("empty");
+			verifyEquation(pressed.value);
 		}
 	}
 	function verifyEquation(last) {
@@ -129,7 +129,7 @@
 			document.getElementById("name").style.visibility = "visible";
 			document.getElementById("experience").style.visibility = "visible";
 			document.getElementById("day").style.visibility = "visible";
-		} else if (last == "empty") {
+		} else if (last == "backspace") {
 			document.getElementById("name").style.visibility = "visible";
 			document.getElementById("experience").style.visibility = "visible";
 			document.getElementById("day").style.visibility = "visible";
