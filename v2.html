@@ -111,6 +111,9 @@
 	}
 	function verifyEquation() {
 		tracker += 1;
+		if (tracker > 3) {
+			tracker -= 4;
+		}
 		var hidden = [
 			["name", "experience", "day", "finalize"],
 			["greaterThan", "lessThan", "equal", "notEqual", "greaterThanEqual", "lessThanEqual", "finalize"],
@@ -125,10 +128,10 @@
 		];
 		document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
 		for (var i in hidden[tracker]) {
-				document.getElementById(hidden[tracker %= 4][i]).style.visibility = "hidden";
+				document.getElementById(hidden[tracker][i]).style.visibility = "hidden";
 			}
 		for (var i in visible[tracker]) {
-				document.getElementById(visible[tracker %= 4][i]).style.visibility = "visible";
+				document.getElementById(visible[tracker][i]).style.visibility = "visible";
 		}
 		if (buildEquation.length > 0) {
 			document.getElementById("backspace").style.visibility = "visible";
