@@ -104,17 +104,7 @@
 		setScreen();
 	}
 	function onClickFinalize() {
-		var temp = [
-			"This is the first line",
-			"This is the second line",
-			"This is more..."
-		].join("\n");
-		var html = `
-		<div>
-		<span>Some HTML here</span>
-		</div>
-		`;
-		//document.getElementById("equation").innerHTML = "if (" + buildEquationLiteral.join(" ") + ")";
+		document.getElementById("equation").innerHTML = "if (" + buildEquationLiteral.join(" ") + ")";
 		reset();
 	}
 	function setScreen() {
