@@ -27,6 +27,7 @@
 		<button id="greaterThan" value="sign" style="visibility:hidden" onclick="addSign(this)">></button>
 		<button id="lessThan" value="sign" style="visibility:hidden" onclick="addSign(this)"><</button>
 		<button id="equal" value="sign" style="visibility:hidden" onclick="addSign(this)">=</button>
+		<button id="notEqualTo" value="sign" style="visibility:hidden" onclick="addSign(this)"><=</button>
 		<button id="greaterThanEqual" value="sign" style="visibility:hidden" onclick="addSign(this)">>=</button>
 		<button id="lessThanEqual" value="sign" style="visibility:hidden" onclick="addSign(this)"><=</button>
 	</div>
@@ -41,55 +42,61 @@
 		<p id="equation">if ()</p>
 	</div>
 <script type="text/javascript">
-	var obbyject = {name: "object.name", experience: "object.experience", day: "object.day"};
 	var buildEquation = new Array();
 	var buildEquationTypes = new Array();
+	var buildEquationLiteral
 	function addEquivalency() {
 		var entered = document.getElementById("equivalencyValue").value.toString();
 		buildEquation.push(entered);
-		/*if (!/[^a-zA-Z]/.test(entered) == true) {
-			buildEquationTypes.push("valueS");
-		} else if (/^\d+$/.test(entered) = true) {
-			buildEquationTypes.push("valueN");
-		} else {
-			buildEquationTypes.push("valueI");
-		}*/
+		buildEquationLiteral.push(entered);
 		buildEquationTypes.push("equivalencyValue");
 		document.getElementById("equivalencyValue").value = "";
 		verifyEquation("equivalencyValue");
 	}
 	function addSign(sign) {
 		if (sign.id == "greaterThan") {
-			buildEquation.push(">");
+			buildEquation.push("is greater than");
+			buildEquationLiteral.push(">");
 		} else if (sign.id == "lessThan") {
-			buildEquation.push("<");
+			buildEquation.push("is less than");
+			buildEquationLiteral.push("<");
 		} else if (sign.id == "equal") {
-			buildEquation.push("==");
+			buildEquation.push("is equal to");
+			buildEquationLiteral.push("==");
+		} else if (sign.id == "notEqualTo") {
+			buildEquation.push("is not equal to");
+			buildEquationLiteral.push("!=");
 		} else if (sign.id == "greaterThanEqual") {
-			buildEquation.push(">=");
+			buildEquation.push("is greater than or equal to");
+			buildEquationLiteral.push(">=");
 		} else {
-			buildEquation.push("<=");
+			buildEquation.push("is less than or equal to");
+			buildEquationLiteral.push("<=");
 		}
 		buildEquationTypes.push("sign");
 		verifyEquation(sign.value);
 	}
 	function addAndOr(condition) {
 		if (condition.id == "addAnd") {
-			buildEquation.push("&");
+			buildEquation.push("and");
+			buildEquation.push("&&");
 		} else {
-			buildEquation.push("|");
+			buildEquation.push("or");
+			buildEquationLiteral.push("||");
 		}
 		buildEquationTypes.push("andOr");
 		verifyEquation(condition.value);
 	}
 	function addAttribute(attribute) {
-		document.getElementById("backspace").style.visibility = "hidden";
 		if (attribute.id == "name") {
-			buildEquation.push(obbyject.name);
+			buildEquation.push("Name");
+			buildEquationLiteral.push("object.name");
 		} else if (attribute.id == "experience") {
-			buildEquation.push(obbyject.experience);
+			buildEquation.push("Experience");
+			buildEquationLiteral.push("object.experience");
 		} else {
-			buildEquation.push(obbyject.day);
+			buildEquation.push("Day");
+			buildEquationLiteral.push("object.day");
 		}
 		buildEquationTypes.push(attribute.value);
 		verifyEquation(attribute.value);
@@ -132,6 +139,7 @@
 			document.getElementById("day").style.visibility = "hidden";
 			document.getElementById("greaterThan").style.visibility = "visible";
 			document.getElementById("equal").style.visibility = "visible";
+			document.getElementById("notEqualTo").style.visibility = "visible";
 			document.getElementById("lessThan").style.visibility = "visible";
 			document.getElementById("greaterThanEqual").style.visibility = "visible";
 			document.getElementById("lessThanEqual").style.visibility = "visible";
@@ -141,6 +149,7 @@
 			document.getElementById("addEquivalency").style.visibility = "visible";
 			document.getElementById("greaterThan").style.visibility = "hidden";
 			document.getElementById("equal").style.visibility = "hidden";
+			document.getElementById("notEqualTo").style.visibility = "hidden";
 			document.getElementById("lessThan").style.visibility = "hidden";
 			document.getElementById("greaterThanEqual").style.visibility = "hidden";
 			document.getElementById("lessThanEqual").style.visibility = "hidden";
@@ -159,6 +168,7 @@
 		document.getElementById("addEquivalency").style.visibility = "hidden";
 		document.getElementById("greaterThan").style.visibility = "hidden";
 		document.getElementById("equal").style.visibility = "hidden";
+		document.getElementById("notEqualTo").style.visibility = "hidden";
 		document.getElementById("lessThan").style.visibility = "hidden";
 		document.getElementById("greaterThanEqual").style.visibility = "hidden";
 		document.getElementById("lessThanEqual").style.visibility = "hidden";
@@ -166,15 +176,6 @@
 		document.getElementById("experience").style.visibility = "hidden";
 		document.getElementById("day").style.visibility = "hidden";
 	}
-	
-	
-	
-	/*document.getElementById("addAnd").addEventListener("click", function(){
-		addToCondition(document.getElementById("addAnd").val());
-	});
-	document.getElementById("addOr").addEventListener("click", function(){
-		addToCondition(document.getElementById("addOr").val());
-	});*/
 </script>
 </body>
 </html>
