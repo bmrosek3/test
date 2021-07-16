@@ -24,12 +24,12 @@
 	</div>
 <div>
 	<div class="buttonBlock">
-		<button id="greaterThan" value="sign" style="visibility:hidden" onclick="addSign(this)">></button>
-		<button id="lessThan" value="sign" style="visibility:hidden" onclick="addSign(this)"><</button>
-		<button id="equal" value="sign" style="visibility:hidden" onclick="addSign(this)">=</button>
-		<button id="notEqualTo" value="sign" style="visibility:hidden" onclick="addSign(this)"><=</button>
-		<button id="greaterThanEqual" value="sign" style="visibility:hidden" onclick="addSign(this)">>=</button>
-		<button id="lessThanEqual" value="sign" style="visibility:hidden" onclick="addSign(this)"><=</button>
+		<button id="greaterThan" value="sign" style="visibility:hidden" onclick="addSign(this)">Greater Than</button>
+		<button id="lessThan" value="sign" style="visibility:hidden" onclick="addSign(this)">Less Than</button>
+		<button id="equal" value="sign" style="visibility:hidden" onclick="addSign(this)">Equal To</button>
+		<button id="notEqualTo" value="sign" style="visibility:hidden" onclick="addSign(this)">Not Equal To</button>
+		<button id="greaterThanEqual" value="sign" style="visibility:hidden" onclick="addSign(this)">Greater Than/Equal To</button>
+		<button id="lessThanEqual" value="sign" style="visibility:hidden" onclick="addSign(this)">Less Than/Equal To</button>
 	</div>
 <div>
 	<div class="buttonBlock">
@@ -67,10 +67,10 @@
 			buildEquation.push("is not equal to");
 			buildEquationLiteral.push("!=");
 		} else if (sign.id == "greaterThanEqual") {
-			buildEquation.push("is greater than or equal to");
+			buildEquation.push("is greater than/equal to");
 			buildEquationLiteral.push(">=");
 		} else {
-			buildEquation.push("is less than or equal to");
+			buildEquation.push("is less than/equal to");
 			buildEquationLiteral.push("<=");
 		}
 		buildEquationTypes.push("sign");
