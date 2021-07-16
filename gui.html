@@ -16,8 +16,8 @@
 </head>
 <body>
 <div>
-	<button id="addAnd" value="andOr" style="visibility:hidden" onclick="onClickAndOr(this)">And</button>
-	<button id="addOr" value="andOr" style="visibility:hidden" onclick="onClickAndOr(this)">Or</button>
+	<button id="and" value="andOr" style="visibility:hidden" onclick="onClickAndOr(this)">And</button>
+	<button id="or" value="andOr" style="visibility:hidden" onclick="onClickAndOr(this)">Or</button>
 	<button id="backspace" value="backspace" style="visibility:hidden" onclick="onClickBackspace(this)"><<</button>
 	<input type="text" id="equivalencyValue" style="visibility:hidden" placeholder="Enter Equivalency">
 	<button id="addEquivalency" style="visibility:hidden" onclick="onClickValue()">Enter</button>
@@ -77,13 +77,12 @@
 		verifyEquation(pressed.value);
 	}
 	function onClickAndOr(pressed) {
-		if (pressed.id == "addAnd") {
-			buildEquation.push("and");
+		if (pressed.id == "and") {
 			buildEquation.push("&&");
 		} else {
-			buildEquation.push("or");
 			buildEquationLiteral.push("||");
 		}
+		buildEquation.push(pressed.id);
 		buildEquationTypes.push(pressed.value);
 		verifyEquation(pressed.value);
 	}
@@ -124,8 +123,8 @@
 		var conditionals = ["&", "|"]
 		if (last == "andOr") {
 			document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
-			document.getElementById("addAnd").style.visibility = "hidden";
-			document.getElementById("addOr").style.visibility = "hidden";
+			document.getElementById("and").style.visibility = "hidden";
+			document.getElementById("or").style.visibility = "hidden";
 			document.getElementById("name").style.visibility = "visible";
 			document.getElementById("experience").style.visibility = "visible";
 			document.getElementById("day").style.visibility = "visible";
@@ -158,13 +157,13 @@
 			document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
 			document.getElementById("equivalencyValue").style.visibility = "hidden";
 			document.getElementById("addEquivalency").style.visibility = "hidden";
-			document.getElementById("addAnd").style.visibility = "visible";
-			document.getElementById("addOr").style.visibility = "visible";
+			document.getElementById("and").style.visibility = "visible";
+			document.getElementById("or").style.visibility = "visible";
 		}
 	}
 	function reset() {
-		document.getElementById("addAnd").style.visibility = "hidden";
-		document.getElementById("addOr").style.visibility = "hidden";
+		document.getElementById("and").style.visibility = "hidden";
+		document.getElementById("or").style.visibility = "hidden";
 		document.getElementById("equivalencyValue").style.visibility = "hidden";
 		document.getElementById("addEquivalency").style.visibility = "hidden";
 		document.getElementById("greaterThan").style.visibility = "hidden";
