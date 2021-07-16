@@ -46,11 +46,11 @@
 	var buildEquation = new Array();
 	var buildEquationTypes = new Array();
 	var buildEquationLiteral = new Array();
+	var tracker = -1;
 	function onClickValue() {
 		var entered = document.getElementById("value").value.toString();
 		buildEquation.push(entered);
 		buildEquationLiteral.push(entered);
-		buildEquationTypes.push("value");
 		document.getElementById("value").value = "";
 		verifyEquation("value");
 	}
@@ -74,8 +74,7 @@
 			buildEquation.push("is less than/equal to");
 			buildEquationLiteral.push("<=");
 		}
-		buildEquationTypes.push(pressed.value);
-		verifyEquation(pressed.value);
+		verifyEquation();
 	}
 	function onClickAndOr(pressed) {
 		if (pressed.id == "and") {
@@ -84,8 +83,7 @@
 			buildEquationLiteral.push("||");
 		}
 		buildEquation.push(pressed.id);
-		buildEquationTypes.push(pressed.value);
-		verifyEquation(pressed.value);
+		verifyEquation();
 	}
 	function onClickAttribute(pressed) {
 		if (pressed.id == "name") {
@@ -98,28 +96,26 @@
 			buildEquation.push("Day");
 			buildEquationLiteral.push("object.day");
 		}
-		buildEquationTypes.push(pressed.value);
-		verifyEquation(pressed.value);
+		verifyEquation();
 	}
 	function onClickBackspace(pressed) {
 		buildEquation.pop();
-		buildEquationTypes.pop();
 		buildEquationLiteral.pop();
-		if (buildEquation.length > 0) {
+		tracker += 2;
+		if (buildEquation.length > 1) {
 			reset();
-			var pastPass = buildEquationTypes[buildEquationTypes.length - 1];
-			verifyEquation(pastPass);
+			verifyEquation();
 		} else {
-			document.getElementById("equation").innerHTML = "if ()";
 			reset();
-			verifyEquation(pressed.value);
+			verifyEquation();
 		}
 	}
 	function onClickFinalize() {
 		document.getElementById("equation").innerHTML = "if (" + buildEquationLiteral.join(" ") + ")";
 		reset();
 	}
-	function verifyEquation(last) {
+	function verifyEquation() {
+		tracker += 1;
 		var hidden = [
 			["name", "experience", "day", "finalize"],
 			["greaterThan", "lessThan", "equal", "notEqual", "greaterThanEqual", "lessThanEqual", "finalize"],
@@ -132,48 +128,17 @@
 			["and", "or", "finalize"],
 			["name", "experience", "day"]
 		];
+		document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
+		for (var i in hidden[tracker]) {
+				document.getElementById(hidden[tracker % 4][i]).style.visibility = "hidden";
+			}
+		for (var i in visible[tracker]) {
+				document.getElementById(visible[tracker % 3][i]).style.visibility = "visible";
+		}
 		if (buildEquation.length > 0) {
 			document.getElementById("backspace").style.visibility = "visible";
 		} else {
 			document.getElementById("backspace").style.visibility = "hidden";
-		}
-		var conditionals = ["&", "|"]
-		if (last == "andOr") {
-			document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
-			for (var i in hidden[3]) {
-				document.getElementById(hidden[3][i]).style.visibility = "hidden";
-			}
-			for (var i in visible[3]) {
-				document.getElementById(visible[3][i]).style.visibility = "visible";
-			}
-		} else if (last == "backspace") {
-			document.getElementById("name").style.visibility = "visible";
-			document.getElementById("experience").style.visibility = "visible";
-			document.getElementById("day").style.visibility = "visible";
-		} else if (last == "attribute") {
-			document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
-			for (var i in hidden[0]) {
-				document.getElementById(hidden[0][i]).style.visibility = "hidden";
-			}
-			for (var i in visible[0]) {
-				document.getElementById(visible[0][i]).style.visibility = "visible";
-			}
-		} else if (last == "sign") {
-			document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
-			for (var i in hidden[1]) {
-				document.getElementById(hidden[1][i]).style.visibility = "hidden";
-			}
-			for (var i in visible[1]) {
-				document.getElementById(visible[1][i]).style.visibility = "visible";
-			}
-		} else if (last == "value") {
-			document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
-			for (var i in hidden[2]) {
-				document.getElementById(hidden[2][i]).style.visibility = "hidden";
-			}
-			for (var i in visible[2]) {
-				document.getElementById(visible[2][i]).style.visibility = "visible";
-			}
 		}
 	}
 	function reset() {
