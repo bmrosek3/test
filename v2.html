@@ -83,7 +83,7 @@
 		} else {
 			buildEquationLiteral.push("||");
 		}
-		buildEquation.push(pressed.textContent.tolowerCase());
+		buildEquation.push(pressed.id);
 		buildEquationTypes.push(pressed.value);
 		verifyEquation(pressed.value);
 	}
@@ -120,6 +120,18 @@
 		reset();
 	}
 	function verifyEquation(last) {
+		var hidden = [
+			["name", "experience", "day", "finalize"],
+			["greaterThan", "lessThan", "equal", "notEqual", "greaterThanEqual", "lessThanEqual", "finalize"],
+			["value", "enterValue"],
+			["and", "or", "finalize"]
+		];
+		var visible = [
+			["greaterThan", "lessThan", "equal", "notEqual", "greaterThanEqual", "lessThanEqual"],
+			["value", "enterValue"],
+			["and", "or", "finalize"],
+			["name", "experience", "day"]
+		];
 		if (buildEquation.length > 0) {
 			document.getElementById("backspace").style.visibility = "visible";
 		} else {
@@ -128,46 +140,40 @@
 		var conditionals = ["&", "|"]
 		if (last == "andOr") {
 			document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
-			document.getElementById("and").style.visibility = "hidden";
-			document.getElementById("or").style.visibility = "hidden";
-			document.getElementById("finalize").style.visibility = "hidden";
-			document.getElementById("name").style.visibility = "visible";
-			document.getElementById("experience").style.visibility = "visible";
-			document.getElementById("day").style.visibility = "visible";
+			for (var i in hidden[3]) {
+				document.getElementById(hidden[3][i]).style.visibility = "hidden";
+			}
+			for (var i in visible[3]) {
+				document.getElementById(visible[3][i]).style.visibility = "visible";
+			}
 		} else if (last == "backspace") {
 			document.getElementById("name").style.visibility = "visible";
 			document.getElementById("experience").style.visibility = "visible";
 			document.getElementById("day").style.visibility = "visible";
 		} else if (last == "attribute") {
 			document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
-			document.getElementById("name").style.visibility = "hidden";
-			document.getElementById("experience").style.visibility = "hidden";
-			document.getElementById("day").style.visibility = "hidden";
-			document.getElementById("finalize").style.visibility = "hidden";
-			document.getElementById("greaterThan").style.visibility = "visible";
-			document.getElementById("equal").style.visibility = "visible";
-			document.getElementById("notEqual").style.visibility = "visible";
-			document.getElementById("lessThan").style.visibility = "visible";
-			document.getElementById("greaterThanEqual").style.visibility = "visible";
-			document.getElementById("lessThanEqual").style.visibility = "visible";
+			for (var i in hidden[0]) {
+				document.getElementById(hidden[0][i]).style.visibility = "hidden";
+			}
+			for (var i in visible[0]) {
+				document.getElementById(visible[0][i]).style.visibility = "visible";
+			}
 		} else if (last == "sign") {
 			document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
-			document.getElementById("value").style.visibility = "visible";
-			document.getElementById("enterValue").style.visibility = "visible";
-			document.getElementById("finalize").style.visibility = "hidden";
-			document.getElementById("greaterThan").style.visibility = "hidden";
-			document.getElementById("equal").style.visibility = "hidden";
-			document.getElementById("notEqual").style.visibility = "hidden";
-			document.getElementById("lessThan").style.visibility = "hidden";
-			document.getElementById("greaterThanEqual").style.visibility = "hidden";
-			document.getElementById("lessThanEqual").style.visibility = "hidden";
+			for (var i in hidden[1]) {
+				document.getElementById(hidden[1][i]).style.visibility = "hidden";
+			}
+			for (var i in visible[1]) {
+				document.getElementById(visible[1][i]).style.visibility = "visible";
+			}
 		} else if (last == "value") {
 			document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
-			document.getElementById("value").style.visibility = "hidden";
-			document.getElementById("enterValue").style.visibility = "hidden";
-			document.getElementById("and").style.visibility = "visible";
-			document.getElementById("or").style.visibility = "visible";
-			document.getElementById("finalize").style.visibility = "visible";
+			for (var i in hidden[2]) {
+				document.getElementById(hidden[2][i]).style.visibility = "hidden";
+			}
+			for (var i in visible[2]) {
+				document.getElementById(visible[2][i]).style.visibility = "visible";
+			}
 		}
 	}
 	function reset() {
