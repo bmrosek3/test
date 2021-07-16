@@ -51,8 +51,7 @@
 		var entered = document.getElementById("value").value.toString();
 		buildEquation.push(entered);
 		buildEquationLiteral.push(entered);
-		document.getElementById("value").value = "";
-		verifyEquation("value");
+		setScreen();
 	}
 	function onClickSign(pressed) {
 		if (pressed.id == "greaterThan") {
@@ -74,7 +73,7 @@
 			buildEquation.push("is less than/equal to");
 			buildEquationLiteral.push("<=");
 		}
-		verifyEquation();
+		setScreen();
 	}
 	function onClickAndOr(pressed) {
 		if (pressed.id == "and") {
@@ -83,7 +82,7 @@
 			buildEquationLiteral.push("||");
 		}
 		buildEquation.push(pressed.id);
-		verifyEquation();
+		setScreen();
 	}
 	function onClickAttribute(pressed) {
 		if (pressed.id == "name") {
@@ -96,20 +95,20 @@
 			buildEquation.push("Day");
 			buildEquationLiteral.push("object.day");
 		}
-		verifyEquation();
+		setScreen();
 	}
 	function onClickBackspace(pressed) {
 		buildEquation.pop();
 		buildEquationLiteral.pop();
 		tracker += 2;
 		reset();
-		verifyEquation();
+		setScreen();
 	}
 	function onClickFinalize() {
 		document.getElementById("equation").innerHTML = "if (" + buildEquationLiteral.join(" ") + ")";
 		reset();
 	}
-	function verifyEquation() {
+	function setScreen() {
 		tracker += 1;
 		if (tracker > 3) {
 			tracker -= 4;
