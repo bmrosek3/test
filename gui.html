@@ -16,26 +16,26 @@
 </head>
 <body>
 <div>
-	<button id="and" value="andOr" style="visibility:hidden" onclick="onClickAndOr(this)">And</button>
-	<button id="or" value="andOr" style="visibility:hidden" onclick="onClickAndOr(this)">Or</button>
+	<button id="and" value="andOr" style="visibility:hidden" onclick="onClickAndOr(this)">and</button>
+	<button id="or" value="andOr" style="visibility:hidden" onclick="onClickAndOr(this)">or</button>
 	<button id="backspace" value="backspace" style="visibility:hidden" onclick="onClickBackspace(this)"><<</button>
 	<input type="text" id="equivalencyValue" style="visibility:hidden" placeholder="Enter Equivalency">
-	<button id="addEquivalency" style="visibility:hidden" onclick="onClickValue()">Enter</button>
+	<button id="addEquivalency" style="visibility:hidden" onclick="onClickValue()">enter</button>
 	</div>
 <div>
 	<div class="buttonBlock">
-		<button id="greaterThan" value="sign" style="visibility:hidden" onclick="onClickSign(this)">Greater Than</button>
-		<button id="lessThan" value="sign" style="visibility:hidden" onclick="onClickSign(this)">Less Than</button>
-		<button id="equal" value="sign" style="visibility:hidden" onclick="onClickSign(this)">Equal</button>
-		<button id="notEqualTo" value="sign" style="visibility:hidden" onclick="onClickSign(this)">Not Equal</button>
-		<button id="greaterThanEqual" value="sign" style="visibility:hidden" onclick="onClickSign(this)">Greater Than/Equal</button>
-		<button id="lessThanEqual" value="sign" style="visibility:hidden" onclick="onClickSign(this)">Less Than/Equal</button>
+		<button id="greaterThan" value="sign" style="visibility:hidden" onclick="onClickSign(this)">greater than</button>
+		<button id="lessThan" value="sign" style="visibility:hidden" onclick="onClickSign(this)">less than</button>
+		<button id="equal" value="sign" style="visibility:hidden" onclick="onClickSign(this)">equal</button>
+		<button id="notEqual" value="sign" style="visibility:hidden" onclick="onClickSign(this)">not equal</button>
+		<button id="greaterThanEqual" value="sign" style="visibility:hidden" onclick="onClickSign(this)">greater than/equal</button>
+		<button id="lessThanEqual" value="sign" style="visibility:hidden" onclick="onClickSign(this)">less than/equal</button>
 	</div>
 <div>
 	<div class="buttonBlock">
-		<button id="name" value="attribute" onclick="onClickAttribute(this)">Name</button>
-		<button id="experience" value="attribute" onclick="onClickAttribute(this)">Experience</button>
-		<button id="day" value="attribute" onclick="onClickAttribute(this)">Day</button>
+		<button id="name" value="attribute" onclick="onClickAttribute(this)">name</button>
+		<button id="experience" value="attribute" onclick="onClickAttribute(this)">experience</button>
+		<button id="day" value="attribute" onclick="onClickAttribute(this)">day</button>
 	</div>
 <div>
 	<div class="equationCenter">
@@ -63,7 +63,7 @@
 		} else if (pressed.id == "equal") {
 			buildEquation.push("is equal to");
 			buildEquationLiteral.push("==");
-		} else if (pressed.id == "notEqualTo") {
+		} else if (pressed.id == "notEqual") {
 			buildEquation.push("is not equal to");
 			buildEquationLiteral.push("!=");
 		} else if (pressed.id == "greaterThanEqual") {
