@@ -102,13 +102,8 @@
 		buildEquation.pop();
 		buildEquationLiteral.pop();
 		tracker += 2;
-		if (buildEquation.length > 1) {
-			reset();
-			verifyEquation();
-		} else {
-			reset();
-			verifyEquation();
-		}
+		reset();
+		verifyEquation();
 	}
 	function onClickFinalize() {
 		document.getElementById("equation").innerHTML = "if (" + buildEquationLiteral.join(" ") + ")";
