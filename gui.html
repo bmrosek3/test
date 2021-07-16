@@ -16,26 +16,26 @@
 </head>
 <body>
 <div>
-	<button id="addAnd" value="andOr" style="visibility:hidden" onclick="addAndOr(this)">And</button>
-	<button id="addOr" value="andOr" style="visibility:hidden" onclick="addAndOr(this)">Or</button>
-	<button id="backspace" value="backspace" style="visibility:hidden" onclick="removeLast()"><<</button>
+	<button id="addAnd" value="andOr" style="visibility:hidden" onclick="onClickAndOr(this)">And</button>
+	<button id="addOr" value="andOr" style="visibility:hidden" onclick="onClickAndOr(this)">Or</button>
+	<button id="backspace" value="backspace" style="visibility:hidden" onclick="onClickBackspace()"><<</button>
 	<input type="text" id="equivalencyValue" style="visibility:hidden" placeholder="Enter Equivalency">
-	<button id="addEquivalency" style="visibility:hidden" onclick="addEquivalency()">Enter</button>
+	<button id="addEquivalency" style="visibility:hidden" onclick="onClickValue()">Enter</button>
 	</div>
 <div>
 	<div class="buttonBlock">
-		<button id="greaterThan" value="sign" style="visibility:hidden" onclick="addSign(this)">Greater Than</button>
-		<button id="lessThan" value="sign" style="visibility:hidden" onclick="addSign(this)">Less Than</button>
-		<button id="equal" value="sign" style="visibility:hidden" onclick="addSign(this)">Equal</button>
-		<button id="notEqualTo" value="sign" style="visibility:hidden" onclick="addSign(this)">Not Equal</button>
-		<button id="greaterThanEqual" value="sign" style="visibility:hidden" onclick="addSign(this)">Greater Than/Equal</button>
-		<button id="lessThanEqual" value="sign" style="visibility:hidden" onclick="addSign(this)">Less Than/Equal</button>
+		<button id="greaterThan" value="sign" style="visibility:hidden" onclick="onClickSign(this)">Greater Than</button>
+		<button id="lessThan" value="sign" style="visibility:hidden" onclick="onClickSign(this)">Less Than</button>
+		<button id="equal" value="sign" style="visibility:hidden" onclick="onClickSign(this)">Equal</button>
+		<button id="notEqualTo" value="sign" style="visibility:hidden" onclick="onClickSign(this)">Not Equal</button>
+		<button id="greaterThanEqual" value="sign" style="visibility:hidden" onclick="onClickSign(this)">Greater Than/Equal</button>
+		<button id="lessThanEqual" value="sign" style="visibility:hidden" onclick="onClickSign(this)">Less Than/Equal</button>
 	</div>
 <div>
 	<div class="buttonBlock">
-		<button id="name" value="attribute" onclick="addAttribute(this)">Name</button>
-		<button id="experience" value="attribute" onclick="addAttribute(this)">Experience</button>
-		<button id="day" value="attribute" onclick="addAttribute(this)">Day</button>
+		<button id="name" value="attribute" onclick="onClickAttribute(this)">Name</button>
+		<button id="experience" value="attribute" onclick="onClickAttribute(this)">Experience</button>
+		<button id="day" value="attribute" onclick="onClickAttribute(this)">Day</button>
 	</div>
 <div>
 	<div class="equationCenter">
@@ -45,7 +45,7 @@
 	var buildEquation = new Array();
 	var buildEquationTypes = new Array();
 	var buildEquationLiteral = new Array();
-	function addEquivalency() {
+	function onClickValue() {
 		var entered = document.getElementById("equivalencyValue").value.toString();
 		buildEquation.push(entered);
 		buildEquationLiteral.push(entered);
@@ -53,7 +53,7 @@
 		document.getElementById("equivalencyValue").value = "";
 		verifyEquation("equivalencyValue");
 	}
-	function addSign(pressed) {
+	function onClickSign(pressed) {
 		if (pressed.id == "greaterThan") {
 			buildEquation.push("is greater than");
 			buildEquationLiteral.push(">");
@@ -76,7 +76,7 @@
 		buildEquationTypes.push(pressed.value);
 		verifyEquation(pressed.value);
 	}
-	function addAndOr(pressed) {
+	function onClickAndOr(pressed) {
 		if (pressed.id == "addAnd") {
 			buildEquation.push("and");
 			buildEquation.push("&&");
@@ -87,7 +87,7 @@
 		buildEquationTypes.push(pressed.value);
 		verifyEquation(pressed.value);
 	}
-	function addAttribute(pressed) {
+	function onClickAttribute(pressed) {
 		if (pressed.id == "name") {
 			buildEquation.push("Name");
 			buildEquationLiteral.push("object.name");
@@ -101,7 +101,7 @@
 		buildEquationTypes.push(pressed.value);
 		verifyEquation(pressed.value);
 	}
-	function removeLast() {
+	function onClickBackspace() {
 		buildEquation.pop();
 		buildEquationTypes.pop();
 		buildEquationLiteral.pop();
