@@ -53,57 +53,58 @@
 		document.getElementById("equivalencyValue").value = "";
 		verifyEquation("equivalencyValue");
 	}
-	function addSign(sign) {
-		if (sign.id == "greaterThan") {
+	function addSign(pressed) {
+		if (pressed.id == "greaterThan") {
 			buildEquation.push("is greater than");
 			buildEquationLiteral.push(">");
-		} else if (sign.id == "lessThan") {
+		} else if (pressed.id == "lessThan") {
 			buildEquation.push("is less than");
 			buildEquationLiteral.push("<");
-		} else if (sign.id == "equal") {
+		} else if (pressed.id == "equal") {
 			buildEquation.push("is equal to");
 			buildEquationLiteral.push("==");
-		} else if (sign.id == "notEqualTo") {
+		} else if (pressed.id == "notEqualTo") {
 			buildEquation.push("is not equal to");
 			buildEquationLiteral.push("!=");
-		} else if (sign.id == "greaterThanEqual") {
+		} else if (pressed.id == "greaterThanEqual") {
 			buildEquation.push("is greater than/equal to");
 			buildEquationLiteral.push(">=");
 		} else {
 			buildEquation.push("is less than/equal to");
 			buildEquationLiteral.push("<=");
 		}
-		buildEquationTypes.push("sign");
-		verifyEquation(sign.value);
+		buildEquationTypes.push(pressed.value);
+		verifyEquation(pressed.value);
 	}
-	function addAndOr(condition) {
-		if (condition.id == "addAnd") {
+	function addAndOr(pressed) {
+		if (pressed.id == "addAnd") {
 			buildEquation.push("and");
 			buildEquation.push("&&");
 		} else {
 			buildEquation.push("or");
 			buildEquationLiteral.push("||");
 		}
-		buildEquationTypes.push("andOr");
-		verifyEquation(condition.value);
+		buildEquationTypes.push(pressed.value);
+		verifyEquation(pressed.value);
 	}
-	function addAttribute(attribute) {
-		if (attribute.id == "name") {
+	function addAttribute(pressed) {
+		if (pressed.id == "name") {
 			buildEquation.push("Name");
 			buildEquationLiteral.push("object.name");
-		} else if (attribute.id == "experience") {
+		} else if (pressed.id == "experience") {
 			buildEquation.push("Experience");
 			buildEquationLiteral.push("object.experience");
 		} else {
 			buildEquation.push("Day");
 			buildEquationLiteral.push("object.day");
 		}
-		buildEquationTypes.push(attribute.value);
-		verifyEquation(attribute.value);
+		buildEquationTypes.push(pressed.value);
+		verifyEquation(pressed.value);
 	}
 	function removeLast() {
 		buildEquation.pop();
 		buildEquationTypes.pop();
+		buildEquationLiteral.pop();
 		if (buildEquation.length > 0) {
 			reset();
 			var pastPass = buildEquationTypes[buildEquationTypes.length - 1];
