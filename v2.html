@@ -21,6 +21,7 @@
 	<button id="backspace" value="backspace" style="visibility:hidden" onclick="onClickBackspace(this)"><<</button>
 	<input type="text" id="equivalencyValue" style="visibility:hidden" placeholder="Enter Equivalency">
 	<button id="addEquivalency" style="visibility:hidden" onclick="onClickValue()">enter</button>
+	<button id="finalize" onclick="onClickFinalize()">Finalize</button>
 	</div>
 <div>
 	<div class="buttonBlock">
@@ -114,6 +115,10 @@
 			verifyEquation(pressed.value);
 		}
 	}
+	function onClickFinalize() {
+		document.getElementById("equation").innerHTML = "if (" + buildEquationLiteral.join(" ") + ")";
+		reset();
+	}
 	function verifyEquation(last) {
 		if (buildEquation.length > 0) {
 			document.getElementById("backspace").style.visibility = "visible";
@@ -125,6 +130,7 @@
 			document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
 			document.getElementById("and").style.visibility = "hidden";
 			document.getElementById("or").style.visibility = "hidden";
+			document.getElementById("finalize").style.visibility = "hidden";
 			document.getElementById("name").style.visibility = "visible";
 			document.getElementById("experience").style.visibility = "visible";
 			document.getElementById("day").style.visibility = "visible";
@@ -137,6 +143,7 @@
 			document.getElementById("name").style.visibility = "hidden";
 			document.getElementById("experience").style.visibility = "hidden";
 			document.getElementById("day").style.visibility = "hidden";
+			document.getElementById("finalize").style.visibility = "hidden";
 			document.getElementById("greaterThan").style.visibility = "visible";
 			document.getElementById("equal").style.visibility = "visible";
 			document.getElementById("notEqual").style.visibility = "visible";
@@ -147,6 +154,7 @@
 			document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
 			document.getElementById("equivalencyValue").style.visibility = "visible";
 			document.getElementById("addEquivalency").style.visibility = "visible";
+			document.getElementById("finalize").style.visibility = "hidden";
 			document.getElementById("greaterThan").style.visibility = "hidden";
 			document.getElementById("equal").style.visibility = "hidden";
 			document.getElementById("notEqual").style.visibility = "hidden";
@@ -159,6 +167,7 @@
 			document.getElementById("addEquivalency").style.visibility = "hidden";
 			document.getElementById("and").style.visibility = "visible";
 			document.getElementById("or").style.visibility = "visible";
+			document.getElementById("finalize").style.visibility = "visible";
 		}
 	}
 	function reset() {
@@ -166,6 +175,7 @@
 		document.getElementById("or").style.visibility = "hidden";
 		document.getElementById("equivalencyValue").style.visibility = "hidden";
 		document.getElementById("addEquivalency").style.visibility = "hidden";
+		document.getElementById("finalize").style.visibility = "hidden";
 		document.getElementById("greaterThan").style.visibility = "hidden";
 		document.getElementById("equal").style.visibility = "hidden";
 		document.getElementById("notEqual").style.visibility = "hidden";
