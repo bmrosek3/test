@@ -61,11 +61,17 @@
 	function onClickValue() {
 		var entered = document.getElementById("value").value.toString();
 		if (/^[a-zA-Z]+$/.test(entered) == true) {
-			document.write("just checking");
+			buildEquation.push(entered);
+			buildEquationLiteral.push(entered);
+			setScreen();
+			stringOnly();
+		} else if (/^\d+$/.test(entered) == true) {
+			buildEquation.push(entered);
+			buildEquationLiteral.push(entered);
+			setScreen();
+		} else {
+			return;
 		}
-		buildEquation.push(entered);
-		buildEquationLiteral.push(entered);
-		setScreen();
 	}
 	function onClickSign(pressed) {
 		if (pressed.id == "greaterThan") {
@@ -174,6 +180,12 @@
 		document.getElementById("time").style.visibility = "hidden";
 		document.getElementById("date").style.visibility = "hidden";
 		document.getElementById("day").style.visibility = "hidden";
+	}
+	function stringOnly() {
+		document.getElementById("greaterThan").style.visibility = "hidden";
+		document.getElementById("lessThan").style.visibility = "hidden";
+		document.getElementById("greaterThanEqual").style.visibility = "hidden";
+		document.getElementById("lessThanEqual").style.visibility = "hidden";
 	}
 </script>
 </body>
