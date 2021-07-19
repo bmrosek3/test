@@ -114,6 +114,7 @@
 		} else {
 			buildEquationLiteral.push("||");
 		}
+		buildEquation.push("\n");
 		buildEquation.push(pressed.id);
 		setScreen();
 	}
@@ -134,6 +135,9 @@
 	function onClickBackspace(pressed) {
 		buildEquation.pop();
 		buildEquationLiteral.pop();
+		if (buildEquation[buildEquation.length - 1] == "/n") {
+			buildEquation.pop();
+		}
 		tracker += 2;
 		reset();
 		setScreen();
