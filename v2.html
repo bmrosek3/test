@@ -58,6 +58,13 @@
 	var buildEquation = new Array();
 	var buildEquationLiteral = new Array();
 	var tracker = -1;
+	var update =  document.getElementById("value").value.toString();
+	setInterval(function() { 
+		if (document.getElementById("value").value.toString() != update) {
+			update = document.getElementById("value").value.toString();
+			document.getElementById("story").value = buildEquation.join(" ") + " " + update;
+		}
+	}, 100);
 	
 	function onClickValue() {
 		var entered = document.getElementById("value").value.toString();
