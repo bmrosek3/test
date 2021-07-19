@@ -62,7 +62,7 @@
 	setInterval(function() { 
 		if (document.getElementById("value").value.toString() != update) {
 			update = document.getElementById("value").value.toString();
-			document.getElementById("output").value = buildEquation.join("") + " " + update;
+			document.getElementById("output").value = buildEquation.join("") + update;
 		}
 	}, 50);
 	
