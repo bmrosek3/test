@@ -60,7 +60,7 @@
 	
 	function onClickValue() {
 		var entered = document.getElementById("value").value.toString();
-		if (/^[a-zA-Z]+$/.test(entered) == true) {
+		/*if (/^[a-zA-Z]+$/.test(entered) == true) {
 			buildEquation.push(entered);
 			buildEquationLiteral.push(entered);
 			setScreen();
@@ -71,7 +71,10 @@
 			setScreen();
 		} else {
 			return;
-		}
+		}*/
+		buildEquation.push(entered);
+		buildEquationLiteral.push(entered);
+		setScreen();
 	}
 	function onClickSign(pressed) {
 		if (pressed.id == "greaterThan") {
@@ -114,6 +117,9 @@
 		}
 		buildEquation.push(pressed.id);
 		setScreen();
+		if (pressed.id == "name" || pressed.id == "day") {
+			stringOnly();
+		}
 	}
 	function onClickBackspace(pressed) {
 		buildEquation.pop();
