@@ -126,7 +126,7 @@
 			tracker -= 4;
 		}
 		var hidden = [
-			["driver", "name", "experience", "day", "finalize", "location", "longitude", "latitude", "speed", "date", "dateB", "day", "time"],
+			["driver", "name", "experience", "age", "finalize", "location", "longitude", "latitude", "speed", "date", "dateB", "day", "time"],
 			["greaterThan", "lessThan", "equal", "notEqual", "greaterThanEqual", "lessThanEqual", "finalize"],
 			["value", "enterValue"],
 			["and", "or", "finalize"]
@@ -135,7 +135,7 @@
 			["greaterThan", "lessThan", "equal", "notEqual", "greaterThanEqual", "lessThanEqual"],
 			["value", "enterValue"],
 			["and", "or", "finalize"],
-			["driver", "name", "experience", "day", "location", "longitude", "latitude", "speed", "date", "dateB", "day", "time"]
+			["driver", "name", "experience", "age", "location", "longitude", "latitude", "speed", "date", "dateB", "day", "time"]
 		];
 		document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
 		for (var i in hidden[tracker]) {
@@ -165,6 +165,7 @@
 		document.getElementById("driver").style.visibility = "hidden";
 		document.getElementById("name").style.visibility = "hidden";
 		document.getElementById("experience").style.visibility = "hidden";
+		document.getElementById("age").style.visibility = "hidden";
 		document.getElementById("day").style.visibility = "hidden";
 		document.getElementById("location").style.visibility = "hidden";
 		document.getElementById("longitude").style.visibility = "hidden";
