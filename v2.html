@@ -60,6 +60,9 @@
 	
 	function onClickValue() {
 		var entered = document.getElementById("value").value.toString();
+		if (/^[a-zA-Z]+$/.test(entered) == true) {
+			document.write("just checking");
+		}
 		buildEquation.push(entered);
 		buildEquationLiteral.push(entered);
 		setScreen();
@@ -103,7 +106,7 @@
 		} else {
 			buildEquationLiteral.push("time." + pressed.id);
 		}
-		buildEquation.push(pressed.id.toUpperCase());
+		buildEquation.push(pressed.id);
 		setScreen();
 	}
 	function onClickBackspace(pressed) {
