@@ -34,7 +34,7 @@
 	</div>
 <div>
 	<div class="buttonBlock">
-		<p>Object</p>
+		<p id="driver" style="font-size:18px">Object</p>
 		<button id="name" value="attribute" onclick="onClickAttribute(this)">name</button>
 		<button id="experience" value="attribute" onclick="onClickAttribute(this)">experience</button>
 		<button id="day" value="attribute" onclick="onClickAttribute(this)">day</button>
@@ -50,11 +50,6 @@
 	var buildEquation = new Array();
 	var buildEquationLiteral = new Array();
 	var tracker = -1;
-	
-	var script_tag = document.createElement('script');
-	script_tag.type = 'text/javascript';
-	script_tag.text = 'alert("hello world")';
-	document.body.appendChild(script_tag);
 	
 	function onClickValue() {
 		var entered = document.getElementById("value").value.toString();
