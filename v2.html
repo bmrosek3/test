@@ -43,6 +43,9 @@
 		<p id="equation">if ()</p>
 	</div>
 <script type="text/javascript">
+	var driverOBJ = {name : "Ben", age : 20, experience : 4};
+	var locationOBJ = {lat : 33.3969, lon : 84.5963, speed : 40.2};
+	var dateOBJ = {time : 4134.0129, day : "Friday", date : "07/09/2021"};
 	var buildEquation = new Array();
 	var buildEquationLiteral = new Array();
 	var tracker = -1;
@@ -105,6 +108,7 @@
 	}
 	function onClickFinalize() {
 		document.getElementById("equation").innerHTML = "if (" + buildEquationLiteral.join(" ") + ")";
+		document.getElementById("bacspace").innerHTML = "deez";
 		reset();
 	}
 	function setScreen() {
