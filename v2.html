@@ -62,7 +62,7 @@
 	setInterval(function() { 
 		if (document.getElementById("value").value.toString() != update) {
 			update = document.getElementById("value").value.toString();
-			document.getElementById("output").value = buildEquation.join(" ") + " " + update;
+			document.getElementById("output").value = buildEquation.join("") + " " + update;
 		}
 	}, 50);
 	
@@ -81,38 +81,38 @@
 			return;
 		}*/
 		document.getElementById("value").value = "";
-		buildEquation.push(entered);
+		buildEquation.push(entered + " ");
 		buildEquationLiteral.push(entered);
 		
 		setScreen();
 	}
 	function onClickSign(pressed) {
 		if (pressed.id == "greaterThan") {
-			buildEquation.push("is greater than");
+			buildEquation.push("is greater than ");
 			buildEquationLiteral.push(">");
 		} else if (pressed.id == "lessThan") {
-			buildEquation.push("is less than");
+			buildEquation.push("is less than ");
 			buildEquationLiteral.push("<");
 		} else if (pressed.id == "equal") {
-			buildEquation.push("is equal to");
+			buildEquation.push("is equal to ");
 			buildEquationLiteral.push("==");
 		} else if (pressed.id == "notEqual") {
-			buildEquation.push("is not equal to");
+			buildEquation.push("is not equal to ");
 			buildEquationLiteral.push("!=");
 		} else if (pressed.id == "greaterThanEqual") {
-			buildEquation.push("is greater than/equal to");
+			buildEquation.push("is greater than/equal to ");
 			buildEquationLiteral.push(">=");
 		} else {
-			buildEquation.push("is less than/equal to");
+			buildEquation.push("is less than/equal to ");
 			buildEquationLiteral.push("<=");
 		}
 		setScreen();
 	}
 	function onClickAndOr(pressed) {
 		if (pressed.id == "and") {
-			buildEquationLiteral.push("&&");
+			buildEquationLiteral.push("&& ");
 		} else {
-			buildEquationLiteral.push("||");
+			buildEquationLiteral.push("|| ");
 		}
 		buildEquation.push("\n");
 		buildEquation.push(pressed.id);
@@ -127,7 +127,7 @@
 		} else {
 			buildEquationLiteral.push("time." + pressed.id);
 		}
-		buildEquation.push(pressed.id);
+		buildEquation.push(pressed.id + " ");
 		setScreen();
 		if (pressed.id == "name" || pressed.id == "day") {
 			stringOnly();
@@ -165,7 +165,7 @@
 			["and", "or", "finalize"],
 			["driver", "name", "experience", "age", "location", "longitude", "latitude", "speed", "time", "date", "day"]
 		];
-		document.getElementById("output").value = buildEquation.join(" ");
+		document.getElementById("output").value = buildEquation.join("");
 		for (var i in hidden[tracker]) {
 				document.getElementById(hidden[tracker][i]).style.visibility = "hidden";
 			}
