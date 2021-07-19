@@ -42,10 +42,9 @@
 		<button id="longitude" value="attribute" onclick="onClickAttribute(this)">longitude</button>
 		<button id="latitude" value="attribute" onclick="onClickAttribute(this)">latitude</button>
 		<button id="speed" value="attribute" onclick="onClickAttribute(this)">speed</button>
-		<p id="date" style="font-size:18px">Date</p>
-		<button id="dateB" value="attribute" onclick="onClickAttribute(this)">date</button>
+		<p id="time" style="font-size:18px">Date</p>
+		<button id="date" value="attribute" onclick="onClickAttribute(this)">date</button>
 		<button id="day" value="attribute" onclick="onClickAttribute(this)">day</button>
-		<button id="time" value="attribute" onclick="onClickAttribute(this)">time</button>
 	</div>
 <div>
 	<div class="equationCenter">
@@ -97,16 +96,14 @@
 		setScreen();
 	}
 	function onClickAttribute(pressed) {
-		if (pressed.id == "name") {
-			buildEquation.push("Name");
-			buildEquationLiteral.push("object.name");
-		} else if (pressed.id == "experience") {
-			buildEquation.push("Experience");
-			buildEquationLiteral.push("object.experience");
+		if (pressed.id == "name" || pressed.id == "experience" || pressed.id == "age") {
+			buildEquationLiteral.push("driver." + pressed.id);
+		} else if (pressed.id == "longitude" || pressed.id == "latitude" || pressed.id == "speed") {
+			buildEquationLiteral.push("location." + pressed.id);
 		} else {
-			buildEquation.push("Day");
-			buildEquationLiteral.push("object.day");
+			buildEquationLiteral.push("time." + pressed.id);
 		}
+		buildEquation.push(pressed.id.toUpperCase());
 		setScreen();
 	}
 	function onClickBackspace(pressed) {
@@ -126,7 +123,7 @@
 			tracker -= 4;
 		}
 		var hidden = [
-			["driver", "name", "experience", "age", "finalize", "location", "longitude", "latitude", "speed", "date", "dateB", "day", "time"],
+			["driver", "name", "experience", "age", "finalize", "location", "longitude", "latitude", "speed", "time", "date", "day"],
 			["greaterThan", "lessThan", "equal", "notEqual", "greaterThanEqual", "lessThanEqual", "finalize"],
 			["value", "enterValue"],
 			["and", "or", "finalize"]
@@ -135,7 +132,7 @@
 			["greaterThan", "lessThan", "equal", "notEqual", "greaterThanEqual", "lessThanEqual"],
 			["value", "enterValue"],
 			["and", "or", "finalize"],
-			["driver", "name", "experience", "age", "location", "longitude", "latitude", "speed", "date", "dateB", "day", "time"]
+			["driver", "name", "experience", "age", "location", "longitude", "latitude", "speed", "time", "date", "day"]
 		];
 		document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
 		for (var i in hidden[tracker]) {
@@ -171,10 +168,9 @@
 		document.getElementById("longitude").style.visibility = "hidden";
 		document.getElementById("latitude").style.visibility = "hidden";
 		document.getElementById("speed").style.visibility = "hidden";
-		document.getElementById("date").style.visibility = "hidden";
-		document.getElementById("dateB").style.visibility = "hidden";
-		document.getElementById("day").style.visibility = "hidden";
 		document.getElementById("time").style.visibility = "hidden";
+		document.getElementById("date").style.visibility = "hidden";
+		document.getElementById("day").style.visibility = "hidden";
 	}
 </script>
 </body>
