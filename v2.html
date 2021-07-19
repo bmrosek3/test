@@ -150,6 +150,7 @@
 			["and", "or", "finalize"],
 			["driver", "name", "experience", "age", "location", "longitude", "latitude", "speed", "time", "date", "day"]
 		];
+		document.getElementById("story").value = buildEquation.join(" ");
 		document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
 		for (var i in hidden[tracker]) {
 				document.getElementById(hidden[tracker][i]).style.visibility = "hidden";
