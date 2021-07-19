@@ -34,10 +34,18 @@
 	</div>
 <div>
 	<div class="buttonBlock">
-		<p id="driver" style="font-size:18px">Object</p>
+		<p id="driver" style="font-size:18px">Driver</p>
 		<button id="name" value="attribute" onclick="onClickAttribute(this)">name</button>
 		<button id="experience" value="attribute" onclick="onClickAttribute(this)">experience</button>
+		<button id="age" value="attribute" onclick="onClickAttribute(this)">age</button>
+		<p id="location" style="font-size:18px">Location</p>
+		<button id="longitude" value="attribute" onclick="onClickAttribute(this)">longitude</button>
+		<button id="latitude" value="attribute" onclick="onClickAttribute(this)">latitude</button>
+		<button id="speed" value="attribute" onclick="onClickAttribute(this)">speed</button>
+		<p id="date" style="font-size:18px">Date</p>
+		<button id="dateB" value="attribute" onclick="onClickAttribute(this)">date</button>
 		<button id="day" value="attribute" onclick="onClickAttribute(this)">day</button>
+		<button id="time" value="attribute" onclick="onClickAttribute(this)">time</button>
 	</div>
 <div>
 	<div class="equationCenter">
@@ -118,7 +126,7 @@
 			tracker -= 4;
 		}
 		var hidden = [
-			["name", "experience", "day", "finalize"],
+			["driver", "name", "experience", "day", "finalize", "location", "longitude", "latitude", "speed", "date", "dateB", "day", "time"],
 			["greaterThan", "lessThan", "equal", "notEqual", "greaterThanEqual", "lessThanEqual", "finalize"],
 			["value", "enterValue"],
 			["and", "or", "finalize"]
@@ -127,7 +135,7 @@
 			["greaterThan", "lessThan", "equal", "notEqual", "greaterThanEqual", "lessThanEqual"],
 			["value", "enterValue"],
 			["and", "or", "finalize"],
-			["name", "experience", "day"]
+			["driver", "name", "experience", "day", "location", "longitude", "latitude", "speed", "date", "dateB", "day", "time"]
 		];
 		document.getElementById("equation").innerHTML = "if (" + buildEquation.join(" ") + ")";
 		for (var i in hidden[tracker]) {
@@ -154,9 +162,18 @@
 		document.getElementById("lessThan").style.visibility = "hidden";
 		document.getElementById("greaterThanEqual").style.visibility = "hidden";
 		document.getElementById("lessThanEqual").style.visibility = "hidden";
+		document.getElementById("driver").style.visibility = "hidden";
 		document.getElementById("name").style.visibility = "hidden";
 		document.getElementById("experience").style.visibility = "hidden";
 		document.getElementById("day").style.visibility = "hidden";
+		document.getElementById("location").style.visibility = "hidden";
+		document.getElementById("longitude").style.visibility = "hidden";
+		document.getElementById("latitude").style.visibility = "hidden";
+		document.getElementById("speed").style.visibility = "hidden";
+		document.getElementById("date").style.visibility = "hidden";
+		document.getElementById("dateB").style.visibility = "hidden";
+		document.getElementById("day").style.visibility = "hidden";
+		document.getElementById("time").style.visibility = "hidden";
 	}
 </script>
 </body>
