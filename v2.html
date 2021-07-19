@@ -49,7 +49,7 @@
 <div>
 	<div class="equationCenter">
 		<p id="equation">if ()</p>
-		<textarea id="output" rows="10" cols="33" disabled="true"></textarea>
+		<textarea id="output" rows="10" cols="33" disabled="true" style="textAlign:center"></textarea>
 	</div>
 <script type="text/javascript">
 	var driverOBJ = {attOne : "Name", attTwo : "Age", attThree : "Experience"};
@@ -133,11 +133,11 @@
 		}
 	}
 	function onClickBackspace(pressed) {
-		buildEquation.pop();
-		buildEquationLiteral.pop();
-		if (buildEquation[buildEquation.length - 1] == "/n") {
+		if (buildEquation[buildEquation.length - 1] == "or" || buildEquation[buildEquation.length - 1] == "and") {
 			buildEquation.pop();
 		}
+		buildEquation.pop();
+		buildEquationLiteral.pop();
 		tracker += 2;
 		reset();
 		setScreen();
