@@ -136,13 +136,15 @@
 	function onClickBackspace(pressed) {
 		buildEquation.pop();
 		buildEquationLiteral.pop();
-		if (buildEquation[buildEquation.length - 1] == "or" || buildEquation[buildEquation.length - 1] == "and") {
-			buildEquation.pop();
-			buildEquation.pop();
-		}
 		tracker += 2;
 		reset();
 		setScreen();
+		if (buildEquation[buildEquation.length - 1] == "or" || buildEquation[buildEquation.length - 1] == "and") {
+			buildEquation.pop();
+			buildEquation.pop();
+		} else if (buildEquation[buildEquation.length - 1] == "name " || buildEquation[buildEquation.length - 1] == "day ") {
+			stringOnly();
+		}
 	}
 	function onClickFinalize() {
 		document.getElementById("equation").innerHTML = "if (" + buildEquationLiteral.join(" ") + ")";
