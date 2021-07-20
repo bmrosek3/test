@@ -116,7 +116,7 @@
 		} else if (pressed.id == "longitude" || pressed.id == "latitude" || pressed.id == "speed") {
 			buildEquationLiteral.push("location." + pressed.id);
 		} else {
-			buildEquationLiteral.push("time." + pressed.id);
+			buildEquationLiteral.push("date." + pressed.id);
 		}
 		buildEquation.push(pressed.id + " ");
 		setScreen();
