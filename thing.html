@@ -6,7 +6,7 @@
 ​
 <script type="text/javascript">
 	document.write("Webview Has Loaded");
-	function sundayAlerts(driverPassed, locationPassed, datePassed) {
+	function Alert1(driverPassed, locationPassed, datePassed) {
 		var driver = JSON.parse(driverPassed);
 		var location = JSON.parse(locationPassed);
 		var date = JSON.parse(datePassed);
@@ -17,12 +17,12 @@
 			Android.displayTF(false.toString());
 		}
 	}
-	function earlyMorningAlerts(driverPassed, locationPassed, datePassed) {
+	function Alert2(driverPassed, locationPassed, datePassed) {
 		var driver = JSON.parse(driverPassed);
 		var location = JSON.parse(locationPassed);
 		var date = JSON.parse(datePassed);
 		
-		if ((driver.name == "Jim" && location.speed > 70 && date.time >= 3600 && date.time <= 25200) == true) {
+		if ((date.day == "Friday" && driver.name == "Ben" && driver.age > 10) == true) {
 			Android.displayTF(true.toString());
 		} else {
 			Android.displayTF(false.toString());
