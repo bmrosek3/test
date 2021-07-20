@@ -68,22 +68,13 @@
 	
 	function onClickValue() {
 		var entered = document.getElementById("value").value.toString();
-		/*if (/^[a-zA-Z]+$/.test(entered) == true) {
-			buildEquation.push(entered);
-			buildEquationLiteral.push(entered);
-			setScreen();
-			stringOnly();
-		} else if (/^\d+$/.test(entered) == true) {
-			buildEquation.push(entered);
-			buildEquationLiteral.push(entered);
-			setScreen();
-		} else {
-			return;
-		}*/
 		document.getElementById("value").value = "";
 		buildEquation.push(entered + " ");
-		buildEquationLiteral.push("\"" + entered + "\"");
-		
+		if (/^[a-zA-Z]+$/.test(entered) == true) {
+			buildEquationLiteral.push("\"" + entered + "\"");
+		} else if (/^\d+$/.test(entered) == true) {
+			buildEquationLiteral.push(entered);
+		}
 		setScreen();
 	}
 	function onClickSign(pressed) {
@@ -148,7 +139,7 @@
 		}
 	}
 	function onClickFinalize() {
-		document.getElementById("equation").innerHTML = "if (" + buildEquationLiteral.join(" ") + ") == true";
+		document.getElementById("equation").innerHTML = "if (" + buildEquationLiteral.join(" ") + " == true)";
 		reset();
 	}
 	function setScreen() {
