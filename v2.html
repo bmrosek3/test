@@ -69,13 +69,19 @@
 	function onClickValue() {
 		var entered = document.getElementById("value").value.toString();
 		document.getElementById("value").value = "";
-		buildEquation.push(entered + " ");
 		if (/^[a-zA-Z]+$/.test(entered) == true) {
-			buildEquationLiteral.push("\"" + entered + "\"");
+			if (buildEqauation[buildEquationLiteral.length - 2] == "driver.name" || buildEqauation[buildEquationLiteral.length - 2] == "date.day") {
+				buildEquationLiteral.push("\"" + entered + "\"");
+				buildEquation.push(entered + " ");
+				setScreen();
+			}
 		} else if (/^\d+$/.test(entered) == true) {
-			buildEquationLiteral.push(entered);
+			if ((buildEqauation[buildEquationLiteral.length - 2] != "driver.name" && buildEqauation[buildEquationLiteral.length - 2] != "date.day") {
+			    	buildEquation.push(entered + " ");
+				buildEquationLiteral.push(entered);
+				setScreen();
+			}
 		}
-		setScreen();
 	}
 	function onClickSign(pressed) {
 		if (pressed.id == "greaterThan") {
