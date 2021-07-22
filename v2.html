@@ -70,13 +70,13 @@
 		var entered = document.getElementById("value").value.toString();
 		document.getElementById("value").value = "";
 		if (/^[a-zA-Z]+$/.test(entered) == true) {
-			if (buildEqauationLiteral[buildEquationLiteral.length - 2] == "driver.name" || buildEqauation[buildEquationLiteral.length - 2] == "date.day") {
+			if (buildEqauationLiteral[buildEquationLiteral.length - 2] == "driver.name" || buildEqauationLiteral[buildEquationLiteral.length - 2] == "date.day") {
 				buildEquationLiteral.push("\"" + entered + "\"");
 				buildEquation.push(entered + " ");
 				setScreen();
 			}
 		} else if (/^\d+$/.test(entered) == true) {
-			if (buildEqauationLiteral[buildEquationLiteral.length - 2] != "driver.name" && buildEqauation[buildEquationLiteral.length - 2] != "date.day") {
+			if (buildEqauationLiteral[buildEquationLiteral.length - 2] != "driver.name" && buildEqauationLiteral[buildEquationLiteral.length - 2] != "date.day") {
 			    	buildEquation.push(entered + " ");
 				buildEquationLiteral.push(entered);
 				setScreen();
