@@ -58,6 +58,7 @@
 	var buildEquation = new Array();
 	var buildEquationLiteral = new Array();
 	var tracker = -1;
+	var allowedInput = false;
 	var update =  document.getElementById("value").value.toString();
 	setInterval(function() { 
 		if (document.getElementById("value").value.toString() != update) {
@@ -69,18 +70,14 @@
 	function onClickValue() {
 		var entered = document.getElementById("value").value.toString();
 		document.getElementById("value").value = "";
-		if (/^[a-zA-Z]+$/.test(entered) == true) {
-			if (buildEqauationLiteral[buildEquationLiteral.length - 2] == "driver.name" || buildEqauationLiteral[buildEquationLiteral.length - 2] == "date.day") {
-				buildEquationLiteral.push("\"" + entered + "\"");
-				buildEquation.push(entered + " ");
-				setScreen();
-			}
-		} else if (/^\d+$/.test(entered) == true) {
-			if (buildEqauationLiteral[buildEquationLiteral.length - 2] != "driver.name" && buildEqauationLiteral[buildEquationLiteral.length - 2] != "date.day") {
-			    	buildEquation.push(entered + " ");
-				buildEquationLiteral.push(entered);
-				setScreen();
-			}
+		if (/^[a-zA-Z]+$/.test(entered) == true && allowedInput == true) {
+			buildEquation.push(entered + " ");
+			buildEquationLiteral.push("\"" + entered + "\"");
+			setScreen();
+		} else if (/^\d+$/.test(entered) == true && allowedInput == false) {
+			buildEquation.push(entered + " ");
+			buildEquationLiteral.push(entered);
+			setScreen();
 		}
 	}
 	function onClickSign(pressed) {
@@ -127,7 +124,10 @@
 		buildEquation.push(pressed.id + " ");
 		setScreen();
 		if (pressed.id == "name" || pressed.id == "day") {
+			allowedInput = true;
 			stringOnly();
+		} else {
+			allowedInput = false;
 		}
 	}
 	function onClickBackspace(pressed) {
