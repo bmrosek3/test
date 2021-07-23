@@ -45,6 +45,9 @@
 		<p id="date" style="font-size:18px">Date</p>
 		<button id="time" value="attribute" onclick="onClickAttribute(this)">time</button>
 		<button id="day" value="attribute" onclick="onClickAttribute(this)">day</button>
+		<p id="vehicle" style="font-size:18px">Vehicle</p>
+		<button id="type" value="attribute" onclick="onClickAttribute(this)">type</button>
+		<button id="length" value="attribute" onclick="onClickAttribute(this)">length</button>
 	</div>
 <div>
 	<div class="equationCenter">
@@ -55,6 +58,7 @@
 	var driverOBJ = {attOne : "Name", attTwo : "Age", attThree : "Experience"};
 	var locationOBJ = {attOne : "Latitude", attTwo : "Longitude", attThtree : "Speed"};
 	var dateOBJ = {attOne : "Time", attTwo : "Day"};
+	var vehicleOBJ = {attOne : "Type", attTwo : "Length"};
 	var buildEquation = new Array();
 	var buildEquationLiteral = new Array();
 	var tracker = -1;
@@ -66,7 +70,6 @@
 			document.getElementById("output").value = buildEquation.join("") + update;
 		}
 	}, 50);
-	
 	function onClickValue() {
 		var entered = document.getElementById("value").value.toString();
 		document.getElementById("value").value = "";
@@ -118,12 +121,14 @@
 			buildEquationLiteral.push("driver." + pressed.id);
 		} else if (pressed.id == "longitude" || pressed.id == "latitude" || pressed.id == "speed") {
 			buildEquationLiteral.push("location." + pressed.id);
-		} else {
+		} else if (pressed.id == "day" || pressed.id == "time") {
 			buildEquationLiteral.push("date." + pressed.id);
+		} else {
+			buildEquationLiteral.push("vehicle." + pressed.id);
 		}
 		buildEquation.push(pressed.id + " ");
 		setScreen();
-		if (pressed.id == "name" || pressed.id == "day") {
+		if (pressed.id == "name" || pressed.id == "day" || pressed.id == "type") {
 			allowedInput = true;
 			stringOnly();
 		} else {
@@ -154,7 +159,7 @@
 			tracker -= 4;
 		}
 		var hidden = [
-			["driver", "name", "experience", "age", "finalize", "location", "longitude", "latitude", "speed", "time", "date", "day"],
+			["driver", "name", "experience", "age", "finalize", "location", "longitude", "latitude", "speed", "time", "date", "day", "vehicle", "type", "length"],
 			["greaterThan", "lessThan", "equal", "notEqual", "greaterThanEqual", "lessThanEqual", "finalize"],
 			["value", "enterValue"],
 			["and", "or", "finalize"]
@@ -163,7 +168,7 @@
 			["greaterThan", "lessThan", "equal", "notEqual", "greaterThanEqual", "lessThanEqual"],
 			["value", "enterValue"],
 			["and", "or", "finalize"],
-			["driver", "name", "experience", "age", "location", "longitude", "latitude", "speed", "time", "date", "day"]
+			["driver", "name", "experience", "age", "location", "longitude", "latitude", "speed", "time", "date", "day", "vehicle", "type", "length]
 		];
 		document.getElementById("output").value = buildEquation.join("");
 		for (var i in hidden[tracker]) {
@@ -202,6 +207,9 @@
 		document.getElementById("time").style.visibility = "hidden";
 		document.getElementById("date").style.visibility = "hidden";
 		document.getElementById("day").style.visibility = "hidden";
+		document.getElementById("vehicle").style.visibility = "hidden";
+		document.getElementById("type").style.visibility = "hidden";
+		document.getElementById("length").style.visibility = "hidden";
 	}
 	function stringOnly() {
 		document.getElementById("greaterThan").style.visibility = "hidden";
