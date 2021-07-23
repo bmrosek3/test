@@ -6,8 +6,9 @@
 ​
 <script type="text/javascript">
 	document.write("Webview Has Loaded");
-	function Alert1(driverPassed, locationPassed, datePassed) {
+	function Alert1(driverPassed, customerPassed, locationPassed, datePassed) {
 		var driver = JSON.parse(driverPassed);
+		var customer = JSON.parse(customerPassed);
 		var location = JSON.parse(locationPassed);
 		var date = JSON.parse(datePassed);
 		
@@ -17,8 +18,9 @@
 			Android.displayTF(false.toString());
 		}
 	}
-	function Alert2(driverPassed, locationPassed, datePassed) {
+	function Alert2(driverPassed, customerPassed, locationPassed, datePassed) {
 		var driver = JSON.parse(driverPassed);
+		var customer = JSON.parse(customerPassed);
 		var location = JSON.parse(locationPassed);
 		var date = JSON.parse(datePassed);
 		
