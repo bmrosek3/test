@@ -11,7 +11,7 @@
 		var location = JSON.parse(locationPassed);
 		var date = JSON.parse(datePassed);
 		
-		if ((driver.name == "Ben" && driver.experience > 10) == true) {
+		if ((driver.experience < 10 && location.speed >= 70 && date.day == "Sunday") == true) {
 			Android.displayTF(true.toString());
 		} else {
 			Android.displayTF(false.toString());
@@ -22,7 +22,7 @@
 		var location = JSON.parse(locationPassed);
 		var date = JSON.parse(datePassed);
 		
-		if ((date.day == "Friday" && driver.name == "Ben" && driver.age > 10) == true) {
+		if ((driver.name == "Ben" && driver.age < 25 && location.speed >= 60) == true) {
 			Android.displayTF(true.toString());
 		} else {
 			Android.displayTF(false.toString());
