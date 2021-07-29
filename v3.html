@@ -86,24 +86,22 @@
 					</div>
 				</div>
 				<div class="col-1">
+					<input type="text" class="form-control-plaintext" id="value" style="visibility:hidden" value="" placeholder="Enter Value:">
+					<button type="button" id="enterValue" style="visibility:hidden" onclick="onClickValue()" class="btn btn-sm btn-primary">Enter</button>
+				</div>
+				<div class="col-1">
 					<div class="btn-group-vertical button-wrapper">
 						<button type="button" id="and" value="andOr" style="visibility:hidden" onclick="onClickAndOr(this)" class="btn btn-sm btn-outline-dark">And</button>
 						<button type="button" id="or" value="andOr" style="visibility:hidden" onclick="onClickAndOr(this)" class="btn btn-sm btn-outline-dark">Or</button>
 					</div>
 				</div>
-				<div class="col-1">
-					<input type="text" class="form-control-plaintext" id="value" style="visibility:hidden" value="" placeholder="Enter Value:">
-				</div>
-				<div class="col-1">
-					<button type="button" id="enterValue" style="visibility:hidden" onclick="onClickValue()" class="btn btn-sm btn-primary">Enter</button>
-				</div>
-				<div class="col-2">
+				<div class="col-4">
 					<div class="center-vertical">
 						<input type="text" class="form-control-plaintext" id="equation" value="" readonly>
 						<textarea class="form-control" id="output" rows="8" style="textAlign:center" readonly></textarea>
 					</div>
 				</div>
-				<div class="col-4">
+				<div class="col-3">
 				</div>
 				<div class="col-1">
 					<div class="btn-group-vertical button-wrapper">
