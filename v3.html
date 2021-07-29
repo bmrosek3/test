@@ -3,13 +3,6 @@
 	.button-wrapper .btn {
 		margin-bottom:5px;
 	}
-	.center-vertical {
-		position: fixed;
-		top: 50%;
-		left: 50%;
-		-webkit-transform: translate(-50%, -50%);
-		transform: translate(-50%, -50%);
-	}
 </style>
 <html lang="en">
 	<head>
@@ -60,8 +53,8 @@
 								Date
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<button type="button" id="date.day" value="attribute" onclick="onClickAttribute(this)" onclick="onClickAttribute(this) class="btn btn-sm">Day</button>
-								<button type="button" id="date.time" value="attribute" onclick="onClickAttribute(this)" onclick="onClickAttribute(this) class="btn btn-sm">Time</button>
+								<button type="button" id="date.day" value="attribute" onclick="onClickAttribute(this)" class="btn btn-sm">Day</button>
+								<button type="button" id="date.time" value="attribute" onclick="onClickAttribute(this)" class="btn btn-sm">Time</button>
 							</div>
 						</div>
 						<div class="dropdown">
@@ -96,8 +89,8 @@
 					</div>
 				</div>
 				<div class="col-4">
-						<p id="equation"></p>
-						<textarea class="form-control" id="output" rows="10" style="min-width: 100%" readonly></textarea>
+					<p id="equation"></p>
+					<textarea class="form-control" id="output" rows="10" style="min-width: 100%" readonly></textarea>
 				</div>
 				<div class="col-3">
 				</div>
