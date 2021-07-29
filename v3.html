@@ -191,13 +191,13 @@
 				tracker += 2;
 				reset();
 				setScreen();
-				document.getElementById("equation").value = "";
+				document.getElementById("equation").innerHTML = "";
 				if (buildEquation[buildEquation.length - 1] == "name " || buildEquation[buildEquation.length - 1] == "day ") {
 					stringOnly();
 				}
 			}
 			function onClickFinalize() {
-				document.getElementById("equation").value = "if ((" + buildEquationLiteral.join(" ") + ") == true)";
+				document.getElementById("equation").innerHTML = "if ((" + buildEquationLiteral.join(" ") + ") == true)";
 				reset();
 			}
 			function setScreen() {
