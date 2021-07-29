@@ -27,84 +27,88 @@
 				<div class="col-1">
 					<div class="btn-group-vertical button-wrapper">
 						<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" style="visibility:hidden" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="driver" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Driver
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 								<button type="button" id="driver.name" class="btn btn-sm">Name</button>
-								<button type="button" class="btn btn-sm">Experience</button>
-								<button type="button" class="btn btn-sm">Age</button>
+								<button type="button" id="driver.experience" class="btn btn-sm">Experience</button>
+								<button type="button" id="driver.age" class="btn btn-sm">Age</button>
 							</div>
 						</div>
 						<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="customer" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Customer
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<button type="button" class="btn btn-sm">Name</button>
-								<button type="button" class="btn btn-sm">Vehicles</button>
+								<button type="button" id="customer.name" class="btn btn-sm">Name</button>
+								<button type="button" id="customer.vehicles" class="btn btn-sm">Vehicles</button>
 							</div>
 						</div>
 						<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="location" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Location
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<button type="button" class="btn btn-sm">Longitude</button>
-								<button type="button" class="btn btn-sm">Latitude</button>
-								<button type="button" class="btn btn-sm">Speed</button>
+								<button type="button" id="location.longitude" class="btn btn-sm">Longitude</button>
+								<button type="button" id="location.latitude" class="btn btn-sm">Latitude</button>
+								<button type="button" id="location.speed" class="btn btn-sm">Speed</button>
 							</div>
 						</div>
 						<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="date" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Date
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<button type="button" class="btn btn-sm">Day</button>
-								<button type="button" class="btn btn-sm">Time</button>
+								<button type="button" id="date.day" class="btn btn-sm">Day</button>
+								<button type="button" id="date.time" class="btn btn-sm">Time</button>
 							</div>
 						</div>
 						<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="vehicle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Vehicle
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<button type="button" class="btn btn-sm">Type</button>
-								<button type="button" class="btn btn-sm">Length</button>
+								<button type="button" id="vehicle.type" class="btn btn-sm">Type</button>
+								<button type="button" id="vehicle.length" class="btn btn-sm">Length</button>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-1">
 					<div class="btn-group-vertical button-wrapper">
-						<button type="button" class="btn btn-sm btn-outline-dark">Equal</button>
-						<button type="button" class="btn btn-sm btn-outline-dark">Not Equal</button>
-						<button type="button" class="btn btn-sm btn-outline-dark">Greater Than</button>
-						<button type="button" class="btn btn-sm btn-outline-dark">Greater Than/Equal To</button>
-						<button type="button" class="btn btn-sm btn-outline-dark">Less Than</button>
-						<button type="button" class="btn btn-sm btn-outline-dark">Less Than/Equal To</button>
+						<button type="button" id="equal" class="btn btn-sm btn-outline-dark">Equal</button>
+						<button type="button" id="notEqual" class="btn btn-sm btn-outline-dark">Not Equal</button>
+						<button type="button" id="greaterThan" class="btn btn-sm btn-outline-dark">Greater Than</button>
+						<button type="button" id="greaterThanEqual" class="btn btn-sm btn-outline-dark">Greater Than/Equal To</button>
+						<button type="button" id="lessThan" class="btn btn-sm btn-outline-dark">Less Than</button>
+						<button type="button" id="lessThanEqual" class="btn btn-sm btn-outline-dark">Less Than/Equal To</button>
 					</div>
 				</div>
 				<div class="col-1">
 					<div class="btn-group-vertical button-wrapper">
-						<button type="button" class="btn btn-sm btn-outline-dark">And</button>
-						<button type="button" class="btn btn-sm btn-outline-dark">Or</button>
+						<button type="button" id="and" class="btn btn-sm btn-outline-dark">And</button>
+						<button type="button" id="or" class="btn btn-sm btn-outline-dark">Or</button>
 					</div>
 				</div>
-				<div class="col-2">
+				<div class="col-1">
+					<input type="text" class="form-control-plaintext" id="value" value="">
+				</div>
+				<div class="col-1">
+					<button type="button" id="enterValue" class="btn btn-sm btn-primaryk">Enter</button>
 				</div>
 				<div class="col-2">
 					<div class="center-vertical">
-						<input type="text" class="form-control-plaintext" id="staticEmail" value="" readonly>
-						<textarea class="form-control" id="exampleFormControlTextarea1" rows="6" readonly></textarea>
+						<input type="text" class="form-control-plaintext" id="equation" value="" readonly>
+						<textarea class="form-control" id="output" rows="8" readonly></textarea>
 					</div>
 				</div>
 				<div class="col-4">
 				</div>
 				<div class="col-1">
 					<div class="btn-group-vertical button-wrapper">
-						<button type="button" class="btn btn-sm btn-outline-dark"><<<</button>
-						<button type="button" class="btn btn-sm btn-outline-dark">Finalize</button>
+						<button type="button" id="backspace" class="btn btn-sm btn-outline-dark"><<<</button>
+						<button type="button" id="finalize" class="btn btn-sm btn-outline-dark">Finalize</button>
 					</div>
 				</div>
 			</div>
