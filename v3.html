@@ -31,9 +31,9 @@
 								Driver
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<button type="button" id="driver.name" value="attribute" class="btn btn-sm">Name</button>
-								<button type="button" id="driver.experience" value="attribute" class="btn btn-sm">Experience</button>
-								<button type="button" id="driver.age" value="attribute" class="btn btn-sm">Age</button>
+								<button type="button" id="driver.name" value="attribute" onclick="onClickAttribute(this) class="btn btn-sm">Name</button>
+								<button type="button" id="driver.experience" value="attribute" onclick="onClickAttribute(this) class="btn btn-sm">Experience</button>
+								<button type="button" id="driver.age" value="attribute" onclick="onClickAttribute(this) class="btn btn-sm">Age</button>
 							</div>
 						</div>
 						<div class="dropdown">
@@ -41,8 +41,8 @@
 								Customer
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<button type="button" id="customer.name" value="attribute" class="btn btn-sm">Name</button>
-								<button type="button" id="customer.vehicles" value="attribute" class="btn btn-sm">Vehicles</button>
+								<button type="button" id="customer.name" value="attribute" onclick="onClickAttribute(this) class="btn btn-sm">Name</button>
+								<button type="button" id="customer.vehicles" value="attribute" onclick="onClickAttribute(this) class="btn btn-sm">Vehicles</button>
 							</div>
 						</div>
 						<div class="dropdown">
@@ -50,9 +50,9 @@
 								Location
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<button type="button" id="location.longitude" value="attribute" class="btn btn-sm">Longitude</button>
-								<button type="button" id="location.latitude" value="attribute" class="btn btn-sm">Latitude</button>
-								<button type="button" id="location.speed" value="attribute" class="btn btn-sm">Speed</button>
+								<button type="button" id="location.longitude" value="attribute" onclick="onClickAttribute(this) class="btn btn-sm">Longitude</button>
+								<button type="button" id="location.latitude" value="attribute" onclick="onClickAttribute(this) class="btn btn-sm">Latitude</button>
+								<button type="button" id="location.speed" value="attribute" onclick="onClickAttribute(this) class="btn btn-sm">Speed</button>
 							</div>
 						</div>
 						<div class="dropdown">
@@ -60,8 +60,8 @@
 								Date
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<button type="button" id="date.day" value="attribute" class="btn btn-sm">Day</button>
-								<button type="button" id="date.time" value="attribute" class="btn btn-sm">Time</button>
+								<button type="button" id="date.day" value="attribute" onclick="onClickAttribute(this) onclick="onClickAttribute(this) class="btn btn-sm">Day</button>
+								<button type="button" id="date.time" value="attribute" onclick="onClickAttribute(this) onclick="onClickAttribute(this) class="btn btn-sm">Time</button>
 							</div>
 						</div>
 						<div class="dropdown">
@@ -69,49 +69,193 @@
 								Vehicle
 							</button>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<button type="button" id="vehicle.type" value="attribute" class="btn btn-sm">Type</button>
-								<button type="button" id="vehicle.length" value="attribute" class="btn btn-sm">Length</button>
+								<button type="button" id="vehicle.type" value="attribute" onclick="onClickAttribute(this) class="btn btn-sm">Type</button>
+								<button type="button" id="vehicle.length" value="attribute" onclick="onClickAttribute(this) class="btn btn-sm">Length</button>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-1">
 					<div class="btn-group-vertical button-wrapper">
-						<button type="button" id="equal" value="sign" class="btn btn-sm btn-outline-dark">Equal</button>
-						<button type="button" id="notEqual" value="sign" class="btn btn-sm btn-outline-dark">Not Equal</button>
-						<button type="button" id="greaterThan" value="sign" class="btn btn-sm btn-outline-dark">Greater Than</button>
-						<button type="button" id="greaterThanEqual" value="sign" class="btn btn-sm btn-outline-dark">Greater Than/Equal To</button>
-						<button type="button" id="lessThan" value="sign" class="btn btn-sm btn-outline-dark">Less Than</button>
-						<button type="button" id="lessThanEqual" value="sign" class="btn btn-sm btn-outline-dark">Less Than/Equal To</button>
+						<button type="button" id="equal" value="sign" onclick="onClickSign(this)" class="btn btn-sm btn-outline-dark">Equal</button>
+						<button type="button" id="notEqual" value="sign" onclick="onClickSign(this)" class="btn btn-sm btn-outline-dark">Not Equal</button>
+						<button type="button" id="greaterThan" value="sign" onclick="onClickSign(this)" class="btn btn-sm btn-outline-dark">Greater Than</button>
+						<button type="button" id="greaterThanEqual" value="sign" onclick="onClickSign(this)" class="btn btn-sm btn-outline-dark">Greater Than/Equal To</button>
+						<button type="button" id="lessThan" value="sign" onclick="onClickSign(this)" class="btn btn-sm btn-outline-dark">Less Than</button>
+						<button type="button" id="lessThanEqual" value="sign" onclick="onClickSign(this)" class="btn btn-sm btn-outline-dark">Less Than/Equal To</button>
 					</div>
 				</div>
 				<div class="col-1">
 					<div class="btn-group-vertical button-wrapper">
-						<button type="button" id="and" value="andOr" class="btn btn-sm btn-outline-dark">And</button>
-						<button type="button" id="or" value="andOr" class="btn btn-sm btn-outline-dark">Or</button>
+						<button type="button" id="and" value="andOr" onclick="onClickAndOr(this)" class="btn btn-sm btn-outline-dark">And</button>
+						<button type="button" id="or" value="andOr" onclick="onClickAndOr(this)" class="btn btn-sm btn-outline-dark">Or</button>
 					</div>
 				</div>
 				<div class="col-1">
 					<input type="text" class="form-control-plaintext" id="value" value="" placeholder="Enter Value:">
 				</div>
 				<div class="col-1">
-					<button type="button" id="enterValue" class="btn btn-sm btn-primary">Enter</button>
+					<button type="button" id="enterValue" onclick="onClickValue()" class="btn btn-sm btn-primary">Enter</button>
 				</div>
 				<div class="col-2">
 					<div class="center-vertical">
 						<input type="text" class="form-control-plaintext" id="equation" value="" readonly>
-						<textarea class="form-control" id="output" rows="8" readonly></textarea>
+						<textarea class="form-control" id="output" rows="8" style="textAlign:center" readonly></textarea>
 					</div>
 				</div>
 				<div class="col-4">
 				</div>
 				<div class="col-1">
 					<div class="btn-group-vertical button-wrapper">
-						<button type="button" id="backspace" value="backspace" class="btn btn-sm btn-outline-dark"><<<</button>
-						<button type="button" id="finalize" class="btn btn-sm btn-outline-dark">Finalize</button>
+						<button type="button" id="backspace" value="backspace" onclick="onClickBackspace(this)" class="btn btn-sm btn-outline-dark"><<<</button>
+						<button type="button" id="finalize" onclick="onClickFinalize()" class="btn btn-sm btn-outline-dark">Finalize</button>
 					</div>
 				</div>
 			</div>
 		</div>
+		<script type="text/javascript">
+			var buildEquation = new Array();
+				var buildEquationLiteral = new Array();
+				var tracker = -1;
+				var allowedInput = false;
+				var update =  document.getElementById("value").value.toString();
+				setInterval(function() { 
+					if (document.getElementById("value").value.toString() != update) {
+						update = document.getElementById("value").value.toString();
+						document.getElementById("output").value = buildEquation.join("") + update;
+					}
+				}, 50);
+			function onClickValue() {
+				var entered = document.getElementById("value").value.toString();
+				document.getElementById("value").value = "";
+				if (/^[a-zA-Z]+$/.test(entered) == true && allowedInput == true) {
+					buildEquation.push(entered + " ");
+					buildEquationLiteral.push("\"" + entered + "\"");
+					setScreen();
+				} else if (/^\d+$/.test(entered) == true && allowedInput == false) {
+					buildEquation.push(entered + " ");
+					buildEquationLiteral.push(entered);
+					setScreen();
+				}
+			}
+			function onClickSign(pressed) {
+				if (pressed.id == "greaterThan") {
+					buildEquation.push("is greater than ");
+					buildEquationLiteral.push(">");
+				} else if (pressed.id == "lessThan") {
+					buildEquation.push("is less than ");
+					buildEquationLiteral.push("<");
+				} else if (pressed.id == "equal") {
+					buildEquation.push("is equal to ");
+					buildEquationLiteral.push("==");
+				} else if (pressed.id == "notEqual") {
+					buildEquation.push("is not equal to ");
+					buildEquationLiteral.push("!=");
+				} else if (pressed.id == "greaterThanEqual") {
+					buildEquation.push("is greater than/equal to ");
+					buildEquationLiteral.push(">=");
+				} else {
+					buildEquation.push("is less than/equal to ");
+					buildEquationLiteral.push("<=");
+				}
+				setScreen();
+			}
+			function onClickAndOr(pressed) {
+				if (pressed.id == "and") {
+					buildEquationLiteral.push("&& ");
+				} else {
+					buildEquationLiteral.push("|| ");
+				}
+				buildEquation.push("\n");
+				buildEquation.push(pressed.id);
+				buildEquation.push("\n");
+				setScreen();
+			}
+			function onClickAttribute(pressed) {
+				buildEquationLiteral.push(pressed.id);
+				var index = pressed.id.indexOf(".");
+				buildEquation.push(pressed.id.substring(index + 1) + " ");
+				setScreen();
+				if (pressed.id == "driver.name" || pressed.id == "customer.name" ||pressed.id == "date.day" || pressed.id == "vehicle.type") {
+					allowedInput = true;
+					stringOnly();
+				} else {
+					allowedInput = false;
+				}
+			}
+			function onClickBackspace(pressed) {
+				buildEquation.pop();
+				buildEquationLiteral.pop();
+				if (buildEquation[buildEquation.length - 1] == "or" || buildEquation[buildEquation.length - 1] == "and") {
+					buildEquation.pop();
+					buildEquation.pop();
+				}
+				tracker += 2;
+				reset();
+				setScreen();
+				document.getElementById("equation").value = "";
+				if (buildEquation[buildEquation.length - 1] == "name " || buildEquation[buildEquation.length - 1] == "day ") {
+					stringOnly();
+				}
+			}
+			function onClickFinalize() {
+				document.getElementById("equation").value = "if ((" + buildEquationLiteral.join(" ") + ") == true)";
+				reset();
+			}
+			function setScreen() {
+				tracker += 1;
+				if (tracker > 3) {
+					tracker -= 4;
+				}
+				var hidden = [
+					["driver", "customer", "location", "date", "vehicle", "finalize"],
+					["equal", "notEqual", "greaterThan", "greaterThanEqual", "lessThan", "lessThanEqual", "finalize"],
+					["value", "enterValue"],
+					["and", "or", "finalize"]
+				];
+				var visible = [
+					["equal", "notEqual", "greaterThan", "greaterThanEqual", "lessThan", "lessThanEqual"],
+					["value", "enterValue"],
+					["and", "or", "finalize"],
+					["driver", "customer", "location", "date", "vehicle"]
+				];
+				document.getElementById("output").value = buildEquation.join("");
+				for (var i in hidden[tracker]) {
+						document.getElementById(hidden[tracker][i]).style.visibility = "hidden";
+					}
+				for (var i in visible[tracker]) {
+						document.getElementById(visible[tracker][i]).style.visibility = "visible";
+				}
+				if (buildEquation.length > 0) {
+					document.getElementById("backspace").style.visibility = "visible";
+				} else {
+					document.getElementById("backspace").style.visibility = "hidden";
+				}
+			}
+			function reset() {
+				document.getElementById("driver").style.visibility = "hidden";
+				document.getElementById("customer").style.visibility = "hidden";
+				document.getElementById("location").style.visibility = "hidden";
+				document.getElementById("date").style.visibility = "hidden";
+				document.getElementById("vehicle").style.visibility = "hidden";
+				document.getElementById("equal").style.visibility = "hidden";
+				document.getElementById("notEqual").style.visibility = "hidden";
+				document.getElementById("greaterThan").style.visibility = "hidden";
+				document.getElementById("greaterThanEqual").style.visibility = "hidden";
+				document.getElementById("lessThan").style.visibility = "hidden";
+				document.getElementById("lessThanEqual").style.visibility = "hidden";
+				document.getElementById("and").style.visibility = "hidden";
+				document.getElementById("or").style.visibility = "hidden";
+				document.getElementById("value").style.visibility = "hidden";
+				document.getElementById("enterValue").style.visibility = "hidden";
+				document.getElementById("finalize").style.visibility = "hidden";
+			}
+			function stringOnly() {
+				document.getElementById("greaterThan").style.visibility = "hidden";
+				document.getElementById("greaterThanEqual").style.visibility = "hidden";
+				document.getElementById("lessThan").style.visibility = "hidden";
+				document.getElementById("lessThanEqual").style.visibility = "hidden";
+			}
+		</script>
 	</body>
 </html>
