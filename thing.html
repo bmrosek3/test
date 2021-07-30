@@ -13,7 +13,7 @@
 		var date = JSON.parse(datePassed);
 		var vehicle = JSON.parse(vehiclePassed);
 		
-		if ((driver.experience < 10 && location.speed >= 70 && date.day == "Sunday") == true) {
+		if ((driver.name == "Sri" && location.speed > 70) == true) {
 			Android.displayTF(true.toString());
 		} else {
 			Android.displayTF(false.toString());
