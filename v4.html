@@ -179,12 +179,23 @@
 					}
 				}, 50);
 			function onClickValue() {
+				var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 				var entered = document.getElementById("value").value.toString();
 				document.getElementById("value").value = "";
 				if (/^[a-zA-Z]+$/.test(entered) == true && allowedInput == true) {
-					buildEquation.push(entered + " ");
-					buildEquationLiteral.push("\"" + entered + "\"");
-					setScreen();
+					if (buildEquationLiteral[buildEquationLiteral.length - 2] == "date.day") {
+						for (var i in days) {
+							if (entered == days[i]) {
+								buildEquation.push(entered + " ");
+								buildEquationLiteral.push("\"" + entered + "\"");
+								setScreen();
+							}
+						}
+					} else {
+						buildEquation.push(entered + " ");
+						buildEquationLiteral.push("\"" + entered + "\"");
+						setScreen();
+					}
 				} else if (/^\d+$/.test(entered) == true && allowedInput == false) {
 					buildEquation.push(entered + " ");
 					buildEquationLiteral.push(entered);
