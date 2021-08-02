@@ -180,6 +180,7 @@
 				}, 50);
 			function onClickValue() {
 				var days = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+				var intOnly = ["driver.age", "driver.experience", "customer.age"];
 				var entered = document.getElementById("value").value.toString();
 				document.getElementById("value").value = "";
 				if (/^[a-zA-Z]+$/.test(entered) == true && allowedInput == true) {
@@ -197,6 +198,13 @@
 						setScreen();
 					}
 				} else if (/^\d+$/.test(entered) == true && allowedInput == false) {
+					for (var i in intOnly) {
+						if (buildEquationLiteral[buildEquationLiteral.length - 2] == intOnly[i]) {
+							if (entered.includes(".")) {
+							    	return;
+							}
+						}
+					}
 					buildEquation.push(entered + " ");
 					buildEquationLiteral.push(entered);
 					setScreen();
