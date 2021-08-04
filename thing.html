@@ -5,7 +5,7 @@
 </head>
 ​
 <script type="text/javascript">
-	document.write("Webview Has Loaded");
+	Android.display("Webview Loaded");
 	var actions = ["Uploading Data", "Downloading Data", "Changing Screen", "Show Alert", "File Report"];
 	var actionTaken = actions[Math.floor(Math.random() * 5)];
 	function Alert1(driverPassed, customerPassed, locationPassed, datePassed, vehiclePassed) {
@@ -16,9 +16,9 @@
 		var vehicle = JSON.parse(vehiclePassed);
 		
 		if ((driver.name == "Sri" && location.speed > 70) == true) {
-			Android.displayTF(actionTaken);
+			Android.display(actionTaken);
 		} else {
-			Android.displayTF("No Action Required");
+			Android.display("No Action Required");
 		}
 	}
 </script>
