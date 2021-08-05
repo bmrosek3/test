@@ -5,7 +5,8 @@
 </head>
 ​
 <script type="text/javascript">
-	Android.display("Alerts Downloade");
+	var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+	Android.display("Alerts Downloaded: " + time.toString());
 	var actions = ["Uploading Data", "Downloading Data", "Changing Screen", "Show Alert", "File Report"];
 	var actionTaken = actions[Math.floor(Math.random() * 5)];
 	function Alert1(driverPassed, customerPassed, locationPassed, datePassed, vehiclePassed) {
